@@ -203,7 +203,7 @@ export function TraceList({ rows, initialOpen }: { rows: TraceRow[]; initialOpen
                     </Badge>
                   ))
                 ) : (
-                  <span className="text-xs text-slate-400">no tools</span>
+                  <span className="text-xs text-slate-400">{check ? 'no tools' : 'running'}</span>
                 )}
               </span>
               <span className="text-right">

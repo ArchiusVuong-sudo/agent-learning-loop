@@ -37,7 +37,7 @@ export default async function TracesPage() {
         {traces.length ? (
           <div className="grid grid-cols-4 gap-3">
             <Stat label="Traces" value={traces.length} hint="Synthetic traffic and Try box" />
-            <Stat label="Failed a check" value={failing} tone={failing ? 'bad' : 'good'} hint={checked.length ? `${Math.round((failing / checked.length) * 100)}% of ${checked.length} checked` : 'Checks running'} />
+            <Stat label="Failed a check" value={failing} tone={failing ? 'bad' : checked.length ? 'good' : undefined} hint={checked.length ? `${Math.round((failing / checked.length) * 100)}% of ${checked.length} checked` : 'Checks running'} />
             <Stat label="Avg latency" value={checked.length ? `${(avgLatency / 1000).toFixed(1)} s` : '-'} hint={shell.mode === 'replay' ? 'Agent run, as recorded live' : 'Agent run, one CLI subprocess each'} />
             <Stat label="SDK cost estimate" value={checked.length ? usd(cost) : '-'} hint={shell.mode === 'replay' ? 'As recorded' : 'Sum over these runs'} />
           </div>
