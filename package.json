@@ -1,0 +1,56 @@
+{
+  "name": "agent-learning-loop",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Khanh Vuong Tuan",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.3.296",
+    "@libsql/client": "^0.18.0",
+    "@mastra/core": "1.75.0",
+    "@mastra/evals": "1.10.5",
+    "@mastra/libsql": "1.25.1",
+    "@mastra/next": "0.2.33",
+    "@mastra/observability": "1.18.4",
+    "clsx": "^2.1.1",
+    "diff": "^9.0.0",
+    "hono": "^4.13.13",
+    "lucide-react": "^1.54.0",
+    "next": "^16.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "playwright": "^1.64.0",
+    "postcss": "^8.5.29",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  },
+  "description": "A working slice of an agent learning loop: failing traces become approved evals, a prompt fix, a gated experiment and a reversible rollout.",
+  "scripts": {
+    "dev": "next dev -H 127.0.0.1 -p ${PORT:-4101}",
+    "build": "next build",
+    "start": "next start -H 127.0.0.1 -p ${PORT:-4101}",
+    "start:replay": "DEMO_REPLAY=1 next start -H 127.0.0.1 -p ${PORT:-4101}",
+    "seed": "tsx scripts/loop.ts seed",
+    "record": "RECORD_FIXTURES=1 tsx scripts/loop.ts record",
+    "reset": "tsx scripts/loop.ts reset",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:live": "LIVE=1 vitest run tests/live.test.ts",
+    "screenshots": "tsx scripts/screenshots.ts"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "packageManager": "pnpm@11.13.1"
+}
