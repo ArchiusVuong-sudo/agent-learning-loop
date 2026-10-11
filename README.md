@@ -17,7 +17,7 @@ Full video: https://github.com/ArchiusVuong-sudo/agent-learning-loop/releases/do
 ## Architecture
 
 ```mermaid
-flowchart LR
+flowchart TB
   UI["Next.js UI"] --> API["API routes"]
   API --> Mastra["Mastra instance"]
   Mastra --> Support["Support agent"]
