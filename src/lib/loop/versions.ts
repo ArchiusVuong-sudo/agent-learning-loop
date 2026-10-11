@@ -4,7 +4,8 @@ import { SUPPORT_PROMPT_V1 } from './prompts';
 export interface PromptVersion {
   id: string;
   text: string;
-  status: 'live' | 'candidate' | 'retired';
+  /** retired: was live and got replaced. superseded: a candidate replaced by a newer one. */
+  status: 'live' | 'candidate' | 'retired' | 'superseded';
   parentId: string | null;
   suggestionId: string | null;
   note: string;
@@ -54,7 +55,7 @@ export async function candidateVersion(): Promise<PromptVersion | null> {
 export async function createCandidate(text: string, parentId: string, suggestionId: string, note: string): Promise<PromptVersion> {
   const count = await one('SELECT COUNT(*) AS n FROM prompt_versions', [], (row) => Number(row.n));
   const id = `v${(count ?? 1) + 1}`;
-  await run("UPDATE prompt_versions SET status = 'retired' WHERE status = 'candidate'");
+  await run("UPDATE prompt_versions SET status = 'superseded' WHERE status = 'candidate'");
   await run(`INSERT INTO prompt_versions (id, text, status, parent_id, suggestion_id, note, created_at) VALUES (?, ?, 'candidate', ?, ?, ?, ?)`, [
     id,
     text,
@@ -80,7 +81,7 @@ export async function setLive(id: string, action: 'promote' | 'rollback', detail
   const client = await db();
   await client.batch(
     [
-      { sql: "UPDATE prompt_versions SET status = 'retired' WHERE status = 'candidate'", args: [] },
+      { sql: "UPDATE prompt_versions SET status = 'superseded' WHERE status = 'candidate'", args: [] },
       { sql: 'UPDATE prompt_versions SET status = ? WHERE id = ?', args: [action === 'rollback' ? 'candidate' : 'retired', current.id] },
       { sql: "UPDATE prompt_versions SET status = 'live' WHERE id = ?", args: [id] },
     ],

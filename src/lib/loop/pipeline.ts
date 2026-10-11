@@ -8,10 +8,18 @@ import { listSupportTraces } from './traces';
 import { SEED_TRAFFIC } from './traffic';
 import { ensureBaseVersion, liveVersion } from './versions';
 
-/** Store rows and prompt v1. Safe to call on every request. */
-export async function ensureSetup(): Promise<void> {
-  await seedStore(config.storeToday);
-  await ensureBaseVersion();
+const globalForSetup = globalThis as unknown as { __setup?: Promise<void> };
+
+/** Store rows and prompt v1. Runs once per process; concurrent callers share the same promise. */
+export function ensureSetup(): Promise<void> {
+  globalForSetup.__setup ??= (async () => {
+    await seedStore(config.storeToday);
+    await ensureBaseVersion();
+  })().catch((error) => {
+    globalForSetup.__setup = undefined;
+    throw error;
+  });
+  return globalForSetup.__setup;
 }
 
 /** Runs the synthetic production traffic through the live prompt, with online checks. */

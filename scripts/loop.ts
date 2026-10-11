@@ -7,7 +7,7 @@
  *
  * `record` needs the Claude Code login (or ANTHROPIC_API_KEY) and takes a few minutes.
  */
-import { existsSync, rmSync } from 'node:fs';
+import { existsSync, readdirSync, rmSync } from 'node:fs';
 import { config } from '../src/lib/config';
 import { closeDb } from '../src/lib/db';
 import { providerStatus } from '../src/lib/llm';
@@ -35,6 +35,10 @@ async function main() {
     if (providerStatus().mode !== 'live') throw new Error(`record needs live mode (${providerStatus().reason})`);
     if (!config.recordFixtures) throw new Error('Run with RECORD_FIXTURES=1 (pnpm record sets it)');
     if (existsSync(config.dataDir)) throw new Error(`Record into an empty data folder: ${config.dataDir} exists (pnpm reset, or set DATA_DIR)`);
+    // Replay serves repeated recordings of one request in order, so a new recording starts clean.
+    if (existsSync(config.fixturesDir) && readdirSync(config.fixturesDir).length) {
+      throw new Error(`Record into an empty fixtures folder: move ${config.fixturesDir} away first (git restores it)`);
+    }
     const result = await runWalkthrough(log);
     log(`gates: ${result.gates.map((g) => `${g.candidateVersion} ${g.status}`).join(', ')}; shadow: ${JSON.stringify(result.shadow)}`);
     log(`fixtures written to ${config.fixturesDir}`);

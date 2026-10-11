@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS escalations (
 CREATE TABLE IF NOT EXISTS prompt_versions (
   id TEXT PRIMARY KEY,
   text TEXT NOT NULL,
-  status TEXT NOT NULL CHECK (status IN ('live', 'candidate', 'retired')),
+  status TEXT NOT NULL CHECK (status IN ('live', 'candidate', 'retired', 'superseded')),
   parent_id TEXT,
   suggestion_id TEXT,
   note TEXT NOT NULL DEFAULT '',

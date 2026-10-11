@@ -119,7 +119,9 @@ export function toTraceView(traceId: string, rawSpans: RawSpan[]): TraceView | n
     promptVersion: typeof meta.promptVersion === 'string' ? meta.promptVersion : null,
     experimentId: typeof meta.experimentId === 'string' ? meta.experimentId : null,
     startedAt: iso(root.startedAt),
-    durationMs: ms(root.startedAt, root.endedAt),
+    // The model run time measured on the live run. In replay mode the span itself only lasts
+    // as long as the scaled replay, so the recorded live time is the honest number to show.
+    durationMs: typeof meta.durationMs === 'number' ? meta.durationMs : ms(root.startedAt, root.endedAt),
     input: textOf(root.input) || (typeof root.input === 'string' ? root.input : JSON.stringify(root.input ?? '')),
     reply: textOf(root.output),
     error: errorText(root.error),

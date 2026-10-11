@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
     '@mastra/observability',
   ],
   poweredByHeader: false,
+  agentRules: false,
 };
 
 export default nextConfig;
