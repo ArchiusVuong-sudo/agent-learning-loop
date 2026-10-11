@@ -67,7 +67,7 @@ One live run of the full flow, recorded on 11 Oct 2026 and served by replay mode
 | Gate on v4 (second revision) | Passed: 8/8 vs 5/8 |
 | Shadow run, 8 held-out requests | v4 passed 8/8, live v1 passed 2/8 |
 
-The video is a separate live run, where v2 failed the gate, v3 passed 8/8 vs 4/8, and the shadow run gave v3 6/8 vs v1 2/8.
+The video is a separate live run, where v2 passed the gate on the first try, 8/8 vs 6/8 on v1, and the shadow run gave v2 6/8 vs v1 1/8.
 
 **Isolation.** Every model call goes through `query()` of the Claude Agent SDK with no built-in tools, only this app's MCP tools in `allowedTools`, no setting sources, a strict MCP config, no saved session, a fresh temp working folder, bounded turns, the `dontAsk` permission mode and a child environment built from an allowlist. Overloaded, rate-limit and 5xx errors retry with backoff.
 
