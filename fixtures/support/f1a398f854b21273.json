@@ -1,0 +1,68 @@
+{
+  "key": "f1a398f854b21273",
+  "anchorKey": "c94d75cd4d8140a1",
+  "role": "support",
+  "anchor": "v1::Kai Halvorsen. The down jacket from ORD-20633 is too big. Can I swap it for a medium?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:30:05.638Z",
+  "result": {
+    "text": "Hi Kai, I can't do a direct size exchange, but ORD-20633 is eligible for a return: the Alpine down jacket was delivered 8 days ago, is unopened, and would get a full $229 refund with no restocking fee. I can start that return for \"wrong size\" now, and then you can order the medium separately. Would you like me to go ahead with the return?",
+    "toolCalls": [
+      {
+        "id": "toolu_01G7rhvL9s2K4vRjvj8DLpwK",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20633"
+        },
+        "output": {
+          "orderId": "ORD-20633",
+          "customer": {
+            "id": "C-1015",
+            "name": "Kai Halvorsen",
+            "tier": "guest"
+          },
+          "item": "Alpine down jacket",
+          "category": "apparel",
+          "price": 229,
+          "status": "delivered",
+          "orderedOn": "2026-09-19",
+          "deliveredOn": "2026-09-23",
+          "daysSinceDelivery": 8,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_011KA7wP1roTADdaKmzytksT",
+        "name": "mcp__store__check_return_eligibility",
+        "input": {
+          "orderId": "ORD-20633",
+          "reason": "wrong_size"
+        },
+        "output": {
+          "orderId": "ORD-20633",
+          "eligible": true,
+          "requiresEscalation": false,
+          "policyId": "exchanges",
+          "daysSinceDelivery": 8,
+          "windowDays": 30,
+          "restockingFeePct": 0,
+          "refundEstimate": 229,
+          "explanation": "Within the 30-day return window."
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 847,
+      "cacheReadTokens": 4422,
+      "cacheWriteTokens": 1025
+    },
+    "costUsd": 0.0008048200000000001,
+    "durationMs": 6355,
+    "model": "claude-haiku-5-5"
+  }
+}

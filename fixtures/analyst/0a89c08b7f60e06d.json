@@ -1,0 +1,44 @@
+{
+  "key": "0a89c08b7f60e06d",
+  "anchorKey": "5ff4379794b06836",
+  "role": "analyst",
+  "anchor": "Customer message:\nHi, Nadia Rahman. What have I ordered recently? I can't find the confirmation email.\n\nTool calls:\n1. mcp__store__find_orders({\"customerName\":\"Nadia Rahman\"}) -> {\"customers\":[{\"id\":\"C-1016\",\"name\":\"Nadia Rahman\",\"tier\":\"guest\",\"memberSince\":null}],\"orders\":[{\"orderId\":\"ORD-20639\",\"",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T03:31:01.250Z",
+  "result": {
+    "text": "{\"goal\":\"List recent orders; can't find confirmation email\",\"outcome\":\"resolved\",\"behaviors\":[\"answered_from_policy\"],\"summary\":\"Agent looked up the customer's orders, reported the single order ORD-20639 (camp chair, $69, delivered 2026-09-10), and said it can't resend confirmation emails.\"}",
+    "structured": {
+      "goal": "List recent orders; can't find confirmation email",
+      "outcome": "resolved",
+      "behaviors": [
+        "answered_from_policy"
+      ],
+      "summary": "Agent looked up the customer's orders, reported the single order ORD-20639 (camp chair, $69, delivered 2026-09-10), and said it can't resend confirmation emails."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_01PTiSuJGLL1fT86KLssZRgR",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "List recent orders; can't find confirmation email",
+          "outcome": "resolved",
+          "behaviors": [
+            "answered_from_policy"
+          ],
+          "summary": "Agent looked up the customer's orders, reported the single order ORD-20639 (camp chair, $69, delivered 2026-09-10), and said it can't resend confirmation emails."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 203,
+      "cacheReadTokens": 861,
+      "cacheWriteTokens": 1196
+    },
+    "costUsd": 0.0071733,
+    "durationMs": 2937,
+    "model": "claude-sonnet-5-5"
+  }
+}

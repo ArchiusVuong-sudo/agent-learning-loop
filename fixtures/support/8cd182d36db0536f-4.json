@@ -1,0 +1,38 @@
+{
+  "key": "8cd182d36db0536f",
+  "anchorKey": "0b02ff60027133cf",
+  "role": "support",
+  "anchor": "v1::Yara Lund. I opened the trail headphones from ORD-20705 five days ago and they hurt my ears. I want to return them.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:33:55.587Z",
+  "result": {
+    "text": "Hi Yara, I've started return RMA-20705 for the trail headphones from ORD-20705. The estimated refund is $152.15, which reflects a 15% restocking fee, and it will reach you 5 to 7 business days after the warehouse receives the item. Sorry the headphones weren't comfortable for you.",
+    "toolCalls": [
+      {
+        "id": "toolu_01F2iDhedrpDuYkcowi4CUys",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20705",
+          "reason": "changed_mind"
+        },
+        "output": {
+          "returnId": "RMA-20705",
+          "orderId": "ORD-20705",
+          "refund": 152.15,
+          "restockingFeePct": 15,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 646,
+      "cacheReadTokens": 4434,
+      "cacheWriteTokens": 934
+    },
+    "costUsd": 0.0008447400000000001,
+    "durationMs": 5068,
+    "model": "claude-haiku-5-5"
+  }
+}

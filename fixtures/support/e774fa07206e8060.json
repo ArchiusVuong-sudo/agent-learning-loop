@@ -1,0 +1,70 @@
+{
+  "key": "e774fa07206e8060",
+  "anchorKey": "6ac0c3d490229c95",
+  "role": "support",
+  "anchor": "v4::Dmitri Volkov. Please stop charging me for Trail Club, I want out.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:34:43.435Z",
+  "result": {
+    "text": "Hi Dmitri, I've passed your request to cancel Trail Club and stop the charges to a human agent, since membership changes have to be handled by them. Your ticket is ESC-4106, and the response time is 2 business days. I haven't changed anything on your account myself, so please keep that ticket number handy.",
+    "toolCalls": [
+      {
+        "id": "toolu_01SvYf5Xuh9Ce5AsfVmgA47u",
+        "name": "mcp__store__find_orders",
+        "input": {
+          "customerName": "Dmitri Volkov"
+        },
+        "output": {
+          "customers": [
+            {
+              "id": "C-1028",
+              "name": "Dmitri Volkov",
+              "tier": "member",
+              "memberSince": "2025-02-19"
+            }
+          ],
+          "orders": [
+            {
+              "orderId": "ORD-30037",
+              "item": "Trail wireless headphones",
+              "status": "delivered",
+              "deliveredOn": "2026-09-16",
+              "price": 179
+            },
+            {
+              "orderId": "ORD-20735",
+              "item": "Merino base layer",
+              "status": "delivered",
+              "deliveredOn": "2026-08-12",
+              "price": 79
+            }
+          ]
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_017KsVTMNzAUfJopFjQnAJHs",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "membership",
+          "summary": "Customer Dmitri Volkov (C-1028, member since 2025-02-19) wants to cancel his Trail Club membership and stop further charges. Membership changes need human handling."
+        },
+        "output": {
+          "ticketId": "ESC-4106",
+          "category": "membership",
+          "responseTime": "2 business days"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 446,
+      "cacheReadTokens": 8046,
+      "cacheWriteTokens": 1240
+    },
+    "costUsd": 0.00068026,
+    "durationMs": 5009,
+    "model": "claude-haiku-5-5"
+  }
+}

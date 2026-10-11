@@ -1,0 +1,48 @@
+{
+  "key": "f09d77839d9f1a37",
+  "anchorKey": "4d6827f88d6b84b5",
+  "role": "support",
+  "anchor": "v1::Hi, this is Imani Okafor. Where is my order ORD-20431? I need the boots for a trip next weekend.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:37.382Z",
+  "result": {
+    "text": "Hi Imani, your order ORD-20431 (Ridgeline hiking boots) is in transit. It was ordered on September 27, but our system doesn't show a delivery date yet, so I can't confirm it will arrive before your trip. I'm sorry for the uncertainty. If it hasn't arrived in the next few days, reply here and I can help you with a return or next steps.",
+    "toolCalls": [
+      {
+        "id": "toolu_01HvmEGJfhqfaVnPfVqsNZ4i",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20431"
+        },
+        "output": {
+          "orderId": "ORD-20431",
+          "customer": {
+            "id": "C-1001",
+            "name": "Imani Okafor",
+            "tier": "guest"
+          },
+          "item": "Ridgeline hiking boots",
+          "category": "footwear",
+          "price": 149,
+          "status": "in_transit",
+          "orderedOn": "2026-09-27",
+          "deliveredOn": null,
+          "daysSinceDelivery": null,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 343,
+      "cacheReadTokens": 4428,
+      "cacheWriteTokens": 605
+    },
+    "costUsd": 0.00046708000000000003,
+    "durationMs": 4414,
+    "model": "claude-haiku-5-5"
+  }
+}

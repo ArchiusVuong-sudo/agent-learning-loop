@@ -1,0 +1,68 @@
+{
+  "key": "f73604d2f70bd106",
+  "anchorKey": "6e82b994670161c6",
+  "role": "support",
+  "anchor": "v1::I opened my trail headphones 20 days ago, can I still return them? Order ORD-20512, Rowan Pike.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:38.548Z",
+  "result": {
+    "text": "I'm sorry, but ORD-20512 isn't eligible for a return. The trail headphones were delivered 20 days ago, and opened electronics have a 14-day return window, so the window has closed. If the headphones are defective, that's a separate warranty issue, and I can help you start that claim if you tell me what's wrong with them.",
+    "toolCalls": [
+      {
+        "id": "toolu_01Ke9CFR398bN2poYa8kUvHw",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20512"
+        },
+        "output": {
+          "orderId": "ORD-20512",
+          "customer": {
+            "id": "C-1003",
+            "name": "Rowan Pike",
+            "tier": "guest"
+          },
+          "item": "Trail wireless headphones",
+          "category": "electronics",
+          "price": 179,
+          "status": "delivered",
+          "orderedOn": "2026-09-07",
+          "deliveredOn": "2026-09-11",
+          "daysSinceDelivery": 20,
+          "opened": true,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01UyhJWmazWnKkEUfi4uWv2Y",
+        "name": "mcp__store__check_return_eligibility",
+        "input": {
+          "orderId": "ORD-20512",
+          "reason": "changed_mind"
+        },
+        "output": {
+          "orderId": "ORD-20512",
+          "restockingFeePct": 0,
+          "refundEstimate": 0,
+          "windowDays": 14,
+          "eligible": false,
+          "requiresEscalation": false,
+          "policyId": "opened-electronics",
+          "daysSinceDelivery": 20,
+          "explanation": "The return window for this item is 14 days and it was delivered 20 days ago."
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 706,
+      "cacheReadTokens": 4425,
+      "cacheWriteTokens": 1069
+    },
+    "costUsd": 0.00074175,
+    "durationMs": 5867,
+    "model": "claude-haiku-5-5"
+  }
+}

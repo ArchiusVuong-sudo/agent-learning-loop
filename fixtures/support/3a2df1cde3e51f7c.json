@@ -1,0 +1,49 @@
+{
+  "key": "3a2df1cde3e51f7c",
+  "anchorKey": "5d1f33b930c0efdf",
+  "role": "support",
+  "anchor": "v1::Mira Joshi. How long does a refund take once you get my return?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:34:54.984Z",
+  "result": {
+    "text": "Hi Mira, once the warehouse receives your returned item, refunds go back to your original payment method within 5–7 business days. If the item is opened electronics (headphones, GPS units, headlamps, action cameras, or watches), a 15% restocking fee is deducted from the refund. If you have a return you'd like me to start, send me the order number and I'll check it.",
+    "toolCalls": [
+      {
+        "id": "toolu_017GVqW78e7fHnnF76nAWyrW",
+        "name": "mcp__store__search_policy",
+        "input": {
+          "query": "refund processing time"
+        },
+        "output": {
+          "results": [
+            {
+              "id": "refunds",
+              "title": "Refunds",
+              "body": "Refunds go back to the original payment method within 5-7 business days after the returned item is received at the warehouse. Restocking fees, when they apply, are deducted from the refund."
+            },
+            {
+              "id": "returns-general",
+              "title": "Returns",
+              "body": "Most items can be returned within 30 days of delivery for a full refund. Opened electronics have a shorter window (see \"Opened electronics\"). Final-sale items cannot be returned. Always confirm eligibility for the specific order before starting a return."
+            },
+            {
+              "id": "opened-electronics",
+              "title": "Opened electronics",
+              "body": "Opened electronics (headphones, GPS units, headlamps, action cameras, watches) can be returned within 14 days of delivery. A 15% restocking fee is deducted from the refund. After 14 days, opened electronics are covered by warranty only."
+            }
+          ]
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 293,
+      "cacheReadTokens": 4389,
+      "cacheWriteTokens": 864
+    },
+    "costUsd": 0.00049059,
+    "durationMs": 3333,
+    "model": "claude-haiku-5-5"
+  }
+}

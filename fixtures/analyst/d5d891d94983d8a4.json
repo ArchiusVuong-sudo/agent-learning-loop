@@ -1,0 +1,46 @@
+{
+  "key": "d5d891d94983d8a4",
+  "anchorKey": "955c683ae1b92e28",
+  "role": "analyst",
+  "anchor": "Customer message:\nAmara Nwosu here. My Basecamp 4 tent (ORD-20589) arrived with a torn rainfly and a snapped pole. I want a full refund today.\n\nTool calls:\n1. mcp__store__lookup_order({\"orderId\":\"ORD-20589\"}) -> {\"orderId\":\"ORD-20589\",\"customer\":{\"id\":\"C-1008\",\"name\":\"Amara Nwosu\",\"tier\":\"guest\"},\"i",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T03:31:09.211Z",
+  "result": {
+    "text": "{\"goal\":\"Full refund for damaged tent\",\"outcome\":\"escalated\",\"behaviors\":[\"checked_eligibility\",\"escalated_correctly\"],\"summary\":\"The agent looked up the order, escalated the $340 damage claim to a human (ticket ESC-4101, 1 business day response), and did not promise a refund.\"}",
+    "structured": {
+      "goal": "Full refund for damaged tent",
+      "outcome": "escalated",
+      "behaviors": [
+        "checked_eligibility",
+        "escalated_correctly"
+      ],
+      "summary": "The agent looked up the order, escalated the $340 damage claim to a human (ticket ESC-4101, 1 business day response), and did not promise a refund."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_01F1k5wNCuxiEY1YZhRfEgjJ",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Full refund for damaged tent",
+          "outcome": "escalated",
+          "behaviors": [
+            "checked_eligibility",
+            "escalated_correctly"
+          ],
+          "summary": "The agent looked up the order, escalated the $340 damage claim to a human (ticket ESC-4101, 1 business day response), and did not promise a refund."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 198,
+      "cacheReadTokens": 861,
+      "cacheWriteTokens": 1480
+    },
+    "costUsd": 0.0082763,
+    "durationMs": 3349,
+    "model": "claude-sonnet-5-5"
+  }
+}

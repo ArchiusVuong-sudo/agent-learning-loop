@@ -1,0 +1,110 @@
+{
+  "key": "9f761dcc31c7f55a",
+  "anchorKey": "712b292c38ffcafe",
+  "role": "support",
+  "anchor": "v1::Caleb Moreau, order ORD-20645. The locking clip on one of my trekking poles snapped on the trail. What are my options?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:30:11.480Z",
+  "result": {
+    "text": "Sorry about the snapped clip, Caleb. Your Ridge trekking poles (ORD-20645) were delivered 150 days ago, so they're outside our 30-day return window and I can't start a refund return. Because the clip failed, though, this falls under our 1-year warranty against manufacturing defects. I've opened warranty claim ESC-4105 for you, and a human agent will reply within 1 business day. Please keep the pole and any photos of the broken clip for them.",
+    "toolCalls": [
+      {
+        "id": "toolu_01L83t3GoMjGT11sqcarCzNJ",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20645"
+        },
+        "output": {
+          "orderId": "ORD-20645",
+          "customer": {
+            "id": "C-1017",
+            "name": "Caleb Moreau",
+            "tier": "guest"
+          },
+          "item": "Ridge trekking poles",
+          "category": "camping",
+          "price": 99,
+          "status": "delivered",
+          "orderedOn": "2026-04-30",
+          "deliveredOn": "2026-05-04",
+          "daysSinceDelivery": 150,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01DrH7LbQ7NnuenG83izEooi",
+        "name": "mcp__store__check_return_eligibility",
+        "input": {
+          "orderId": "ORD-20645",
+          "reason": "defective"
+        },
+        "output": {
+          "orderId": "ORD-20645",
+          "restockingFeePct": 0,
+          "refundEstimate": 0,
+          "windowDays": null,
+          "eligible": false,
+          "requiresEscalation": true,
+          "policyId": "warranty",
+          "daysSinceDelivery": 150,
+          "explanation": "Defects are handled as warranty claims by a human agent. Escalate with category \"warranty\"."
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_0112HFKZmJQZvVM1HgnygHbu",
+        "name": "mcp__store__search_policy",
+        "input": {
+          "query": "warranty defective trekking poles clip"
+        },
+        "output": {
+          "results": [
+            {
+              "id": "warranty",
+              "title": "Warranty",
+              "body": "All gear has a 1-year warranty against manufacturing defects (for example a failed zipper, a delaminating sole or a device that will not power on). Warranty claims are reviewed by a human agent: escalate with category \"warranty\" and ask the customer to keep the item and any photos."
+            },
+            {
+              "id": "opened-electronics",
+              "title": "Opened electronics",
+              "body": "Opened electronics (headphones, GPS units, headlamps, action cameras, watches) can be returned within 14 days of delivery. A 15% restocking fee is deducted from the refund. After 14 days, opened electronics are covered by warranty only."
+            },
+            {
+              "id": "final-sale",
+              "title": "Final sale",
+              "body": "Items marked final sale (clearance) cannot be returned or exchanged. They are still covered by the warranty against manufacturing defects."
+            }
+          ]
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01JzKhysV8VnVEvp6gm1N27w",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "warranty",
+          "orderId": "ORD-20645",
+          "summary": "Customer Caleb Moreau (C-1017) reports the locking clip on a Ridge trekking pole snapped on the trail. Order delivered 2026-05-04 (150 days ago), outside the 30-day return window, so this is a manufacturing-defect warranty claim. Customer should keep the pole and any photos."
+        },
+        "output": {
+          "ticketId": "ESC-4105",
+          "category": "warranty",
+          "responseTime": "1 business day"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 8,
+      "outputTokens": 1391,
+      "cacheReadTokens": 11225,
+      "cacheWriteTokens": 2352
+    },
+    "costUsd": 0.00141025,
+    "durationMs": 9873,
+    "model": "claude-haiku-5-5"
+  }
+}

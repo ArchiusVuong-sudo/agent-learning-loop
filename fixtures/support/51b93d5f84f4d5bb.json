@@ -1,0 +1,38 @@
+{
+  "key": "51b93d5f84f4d5bb",
+  "anchorKey": "9f8d4214fcf31e4e",
+  "role": "support",
+  "anchor": "v1::Theo Lindqvist here. The trail running shoes from order ORD-20457 don't suit me. They're unworn and still in the box. Can I send them back?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:38.159Z",
+  "result": {
+    "text": "Yes, Theo, you can send them back. I've started return RMA-20457 for order ORD-20457, and there's no restocking fee. Your full refund of $129 will go out 5–7 business days after the warehouse receives the shoes, so please keep them in the box and ship them back with the return label.",
+    "toolCalls": [
+      {
+        "id": "toolu_01D65YK4wryVBA4S8MBrPUdN",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20457",
+          "reason": "changed_mind"
+        },
+        "output": {
+          "returnId": "RMA-20457",
+          "orderId": "ORD-20457",
+          "refund": 129,
+          "restockingFeePct": 0,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 462,
+      "cacheReadTokens": 4449,
+      "cacheWriteTokens": 833
+    },
+    "costUsd": 0.00044249000000000003,
+    "durationMs": 5145,
+    "model": "claude-haiku-5-5"
+  }
+}

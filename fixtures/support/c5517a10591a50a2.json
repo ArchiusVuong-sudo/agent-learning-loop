@@ -1,0 +1,38 @@
+{
+  "key": "c5517a10591a50a2",
+  "anchorKey": "889f8250fe39de34",
+  "role": "support",
+  "anchor": "v1::Ruth Abebe. Order ORD-20740, the approach shoes. Never worn, I'd like to return them.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:34:44.942Z",
+  "result": {
+    "text": "Hi Ruth, your return for the approach shoes (order ORD-20740) is started under return number RMA-20740. You'll receive a full refund of $139 with no restocking fee. The refund will be issued 5–7 business days after the warehouse receives the shoes.",
+    "toolCalls": [
+      {
+        "id": "toolu_01UFVfPMuh4PvGfssdkTtyV9",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20740",
+          "reason": "changed_mind"
+        },
+        "output": {
+          "returnId": "RMA-20740",
+          "orderId": "ORD-20740",
+          "refund": 139,
+          "restockingFeePct": 0,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 404,
+      "cacheReadTokens": 4423,
+      "cacheWriteTokens": 783
+    },
+    "costUsd": 0.00053293,
+    "durationMs": 3871,
+    "model": "claude-haiku-5-5"
+  }
+}

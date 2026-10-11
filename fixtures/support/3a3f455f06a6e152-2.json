@@ -1,0 +1,105 @@
+{
+  "key": "3a3f455f06a6e152",
+  "anchorKey": "9bcdde3a490cfecd",
+  "role": "support",
+  "anchor": "v1::Henrik Dahl. The camp cookset from ORD-20774 arrived dented. Can I get a refund?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:33:24.576Z",
+  "result": {
+    "text": "I'm sorry the camp cookset arrived dented, Henrik. I've started return RMA-20774 for order ORD-20774 as a damaged-in-transit return, and it qualifies for a full refund of $65 with no restocking fee. The refund will go out 5–7 business days after the item reaches our warehouse.",
+    "toolCalls": [
+      {
+        "id": "toolu_014Ay3n7DhhoRYwQ983NEQXT",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20774"
+        },
+        "output": {
+          "orderId": "ORD-20774",
+          "customer": {
+            "id": "C-1035",
+            "name": "Henrik Dahl",
+            "tier": "guest"
+          },
+          "item": "Camp cookset",
+          "category": "camping",
+          "price": 65,
+          "status": "delivered",
+          "orderedOn": "2026-09-25",
+          "deliveredOn": "2026-09-29",
+          "daysSinceDelivery": 2,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01M3aKXsKJeq3uJPG9e7zHoh",
+        "name": "mcp__store__find_orders",
+        "input": {
+          "customerName": "Henrik Dahl"
+        },
+        "output": {
+          "customers": [
+            {
+              "id": "C-1035",
+              "name": "Henrik Dahl",
+              "tier": "guest",
+              "memberSince": null
+            }
+          ],
+          "orders": [
+            {
+              "orderId": "ORD-20774",
+              "item": "Camp cookset",
+              "status": "delivered",
+              "deliveredOn": "2026-09-29",
+              "price": 65
+            },
+            {
+              "orderId": "ORD-30078",
+              "item": "Camp slippers",
+              "status": "delivered",
+              "deliveredOn": "2026-09-29",
+              "price": 49
+            },
+            {
+              "orderId": "ORD-30077",
+              "item": "Softshell jacket",
+              "status": "delivered",
+              "deliveredOn": "2026-07-22",
+              "price": 119
+            }
+          ]
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_015fPqV66STsYExnKzNxWd2u",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20774",
+          "reason": "damaged_in_transit"
+        },
+        "output": {
+          "returnId": "RMA-20774",
+          "orderId": "ORD-20774",
+          "refund": 65,
+          "restockingFeePct": 0,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 565,
+      "cacheReadTokens": 7500,
+      "cacheWriteTokens": 1366
+    },
+    "costUsd": 0.0007639000000000001,
+    "durationMs": 4558,
+    "model": "claude-haiku-5-5"
+  }
+}

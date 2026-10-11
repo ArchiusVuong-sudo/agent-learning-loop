@@ -1,0 +1,49 @@
+{
+  "key": "350f0e98036c8a21",
+  "anchorKey": "d1161daa80976feb",
+  "role": "support",
+  "anchor": "v1::Hi, Nadia Rahman. What have I ordered recently? I can't find the confirmation email.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:30:04.247Z",
+  "result": {
+    "text": "Hi Nadia, I found one recent order on your account: ORD-20639, a camp chair for $69, delivered on September 10, 2026. I can't resend confirmation emails, but this order number should help if you need to match it to an email. Let me know if you'd like to check anything about this order.",
+    "toolCalls": [
+      {
+        "id": "toolu_01CSAH1Yw1NXwKUP2A3ZKzf8",
+        "name": "mcp__store__find_orders",
+        "input": {
+          "customerName": "Nadia Rahman"
+        },
+        "output": {
+          "customers": [
+            {
+              "id": "C-1016",
+              "name": "Nadia Rahman",
+              "tier": "guest",
+              "memberSince": null
+            }
+          ],
+          "orders": [
+            {
+              "orderId": "ORD-20639",
+              "item": "Camp chair",
+              "status": "delivered",
+              "deliveredOn": "2026-09-10",
+              "price": 69
+            }
+          ]
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 295,
+      "cacheReadTokens": 4413,
+      "cacheWriteTokens": 560
+    },
+    "costUsd": 0.00043523,
+    "durationMs": 3787,
+    "model": "claude-haiku-5-5"
+  }
+}

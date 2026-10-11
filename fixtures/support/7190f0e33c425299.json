@@ -1,0 +1,73 @@
+{
+  "key": "7190f0e33c425299",
+  "anchorKey": "a95b2903771d2c0b",
+  "role": "support",
+  "anchor": "v1::Ines Carvalho. The Basecamp 6 tent from ORD-20731 was crushed in shipping, two poles are bent. I want my money back.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:34:46.037Z",
+  "result": {
+    "text": "I'm sorry the Basecamp 6 tent arrived crushed with bent poles, Ines. Because the tent is valued at $480, our system requires a human agent to review damage claims of $200 or more before a refund can be issued, so I couldn't start the refund myself. I've passed your case to our team as ticket ESC-4109, with a response expected within 1 business day, and you won't need to re-explain anything.",
+    "toolCalls": [
+      {
+        "id": "toolu_01HHmX5DjwzhHUeqSRfhkvMw",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20731"
+        },
+        "output": {
+          "orderId": "ORD-20731",
+          "customer": {
+            "id": "C-1027",
+            "name": "Ines Carvalho",
+            "tier": "guest"
+          },
+          "item": "Basecamp 6 tent",
+          "category": "camping",
+          "price": 480,
+          "status": "delivered",
+          "orderedOn": "2026-09-26",
+          "deliveredOn": "2026-09-30",
+          "daysSinceDelivery": 1,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_018hrFkRH568EX77N6bMk7Jm",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20731",
+          "reason": "damaged_in_transit"
+        },
+        "output": "Return refused: Damage claims of $200 or more need review by a human agent. Escalate with category \"damage_claim\" and do not promise a refund. Use escalate_to_human instead.",
+        "isError": true
+      },
+      {
+        "id": "toolu_01FW5zXCMZnunEvFFgVRXPYQ",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "damage_claim",
+          "orderId": "ORD-20731",
+          "summary": "Customer Ines Carvalho (C-1027) reports the Basecamp 6 tent ($480, delivered 2026-09-30) arrived crushed with two bent poles and requests a full refund. Damage claims of $200 or more require human review, so please review and process the damaged-in-transit return."
+        },
+        "output": {
+          "ticketId": "ESC-4109",
+          "category": "damage_claim",
+          "responseTime": "1 business day"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 8,
+      "outputTokens": 1514,
+      "cacheReadTokens": 11013,
+      "cacheWriteTokens": 2084
+    },
+    "costUsd": 0.00141963,
+    "durationMs": 10192,
+    "model": "claude-haiku-5-5"
+  }
+}

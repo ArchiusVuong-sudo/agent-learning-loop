@@ -1,0 +1,64 @@
+{
+  "key": "8af6636ab475f3d3",
+  "anchorKey": "d1b953761a22dcc1",
+  "role": "support",
+  "anchor": "v1::Jonah Whitley. The camp stove from ORD-20594 arrived with a cracked burner. What can you do?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:50.925Z",
+  "result": {
+    "text": "I'm sorry the camp stove arrived with a cracked burner, Jonah. I've started return RMA-20594 for order ORD-20594 under damage in transit, so you'll get a full refund of $89 with no restocking fee. The refund will go through 5–7 business days after the item reaches our warehouse.",
+    "toolCalls": [
+      {
+        "id": "toolu_01BwAFnTFMcCPEHUmxh5xsd8",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20594"
+        },
+        "output": {
+          "orderId": "ORD-20594",
+          "customer": {
+            "id": "C-1009",
+            "name": "Jonah Whitley",
+            "tier": "guest"
+          },
+          "item": "Compact camp stove",
+          "category": "camping",
+          "price": 89,
+          "status": "delivered",
+          "orderedOn": "2026-09-24",
+          "deliveredOn": "2026-09-28",
+          "daysSinceDelivery": 3,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01Y2auvm7SHZyaH3ZWfMwkSJ",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20594",
+          "reason": "damaged_in_transit"
+        },
+        "output": {
+          "returnId": "RMA-20594",
+          "orderId": "ORD-20594",
+          "refund": 89,
+          "restockingFeePct": 0,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 540,
+      "cacheReadTokens": 7301,
+      "cacheWriteTokens": 1078
+    },
+    "costUsd": 0.00069191,
+    "durationMs": 5210,
+    "model": "claude-haiku-5-5"
+  }
+}

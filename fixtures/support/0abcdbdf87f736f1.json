@@ -1,0 +1,85 @@
+{
+  "key": "0abcdbdf87f736f1",
+  "anchorKey": "1239923b08ad399e",
+  "role": "support",
+  "anchor": "v1::Priya Raman, order ORD-20533. I tried the handheld GPS on two hikes and it's not for me. I'd like to return it.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:41.417Z",
+  "result": {
+    "text": "Hi Priya, I'm sorry, but I can't start a return for the Summit handheld GPS (ORD-20533). It was delivered 18 days ago and opened, and opened electronics can only be returned within 14 days of delivery. Since it isn't defective, the warranty doesn't cover a return for a change of mind either. If the unit ever develops a manufacturing fault, the warranty would apply, and I'm happy to help with that.",
+    "toolCalls": [
+      {
+        "id": "toolu_01Uwgm3YKRz6USRD5LiTka6f",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20533",
+          "reason": "changed_mind"
+        },
+        "output": "Return refused: The return window for this item is 14 days and it was delivered 18 days ago.",
+        "isError": true
+      },
+      {
+        "id": "toolu_014uq5zbsCS5YSvEFmnktS9q",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20533"
+        },
+        "output": {
+          "orderId": "ORD-20533",
+          "customer": {
+            "id": "C-1004",
+            "name": "Priya Raman",
+            "tier": "guest"
+          },
+          "item": "Summit handheld GPS",
+          "category": "electronics",
+          "price": 249,
+          "status": "delivered",
+          "orderedOn": "2026-09-09",
+          "deliveredOn": "2026-09-13",
+          "daysSinceDelivery": 18,
+          "opened": true,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01JNzBQB8KtPUqE9yxwRAMqH",
+        "name": "mcp__store__search_policy",
+        "input": {
+          "query": "GPS handheld electronics return window"
+        },
+        "output": {
+          "results": [
+            {
+              "id": "returns-general",
+              "title": "Returns",
+              "body": "Most items can be returned within 30 days of delivery for a full refund. Opened electronics have a shorter window (see \"Opened electronics\"). Final-sale items cannot be returned. Always confirm eligibility for the specific order before starting a return."
+            },
+            {
+              "id": "opened-electronics",
+              "title": "Opened electronics",
+              "body": "Opened electronics (headphones, GPS units, headlamps, action cameras, watches) can be returned within 14 days of delivery. A 15% restocking fee is deducted from the refund. After 14 days, opened electronics are covered by warranty only."
+            },
+            {
+              "id": "final-sale",
+              "title": "Final sale",
+              "body": "Items marked final sale (clearance) cannot be returned or exchanged. They are still covered by the warranty against manufacturing defects."
+            }
+          ]
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 788,
+      "cacheReadTokens": 7160,
+      "cacheWriteTokens": 1442
+    },
+    "costUsd": 0.0009615,
+    "durationMs": 8809,
+    "model": "claude-haiku-5-5"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "key": "b2551f46a2ddc396",
+  "anchorKey": "9f15fefd759983d5",
+  "role": "support",
+  "anchor": "v1::Elena Petrova. I mailed back the hiking boots from ORD-20624 last week. When will I see the refund?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:30:04.513Z",
+  "result": {
+    "text": "Hi Elena, I can see ORD-20624 (waterproof hiking boots, $169). It's eligible for a full refund of $169 with no restocking fee. However, my tools don't show a return on file or any refund processing status, so I can't tell you when the money will arrive or confirm the boots were received. Our system also lists today's date as October 1, so the 30-day window was checked against that date. If you have your return shipping receipt, please keep it handy in case the team needs it.",
+    "toolCalls": [
+      {
+        "id": "toolu_01RfrQxS2jXtA1c3Fj7kav63",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20624"
+        },
+        "output": {
+          "orderId": "ORD-20624",
+          "customer": {
+            "id": "C-1014",
+            "name": "Elena Petrova",
+            "tier": "guest"
+          },
+          "item": "Waterproof hiking boots",
+          "category": "footwear",
+          "price": 169,
+          "status": "delivered",
+          "orderedOn": "2026-09-01",
+          "deliveredOn": "2026-09-05",
+          "daysSinceDelivery": 26,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01EaWZc8v9my5UrXvPApi8Q2",
+        "name": "mcp__store__check_return_eligibility",
+        "input": {
+          "orderId": "ORD-20624",
+          "reason": "changed_mind"
+        },
+        "output": {
+          "orderId": "ORD-20624",
+          "eligible": true,
+          "requiresEscalation": false,
+          "policyId": "returns-general",
+          "daysSinceDelivery": 26,
+          "windowDays": 30,
+          "restockingFeePct": 0,
+          "refundEstimate": 169,
+          "explanation": "Within the 30-day return window."
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 1079,
+      "cacheReadTokens": 7139,
+      "cacheWriteTokens": 1214
+    },
+    "costUsd": 0.00098449,
+    "durationMs": 8362,
+    "model": "claude-haiku-5-5"
+  }
+}

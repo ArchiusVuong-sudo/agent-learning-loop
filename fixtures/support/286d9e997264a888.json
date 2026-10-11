@@ -1,0 +1,48 @@
+{
+  "key": "286d9e997264a888",
+  "anchorKey": "119a8c6134658754",
+  "role": "support",
+  "anchor": "v1::Hi, Lena Fischer here. Has my order ORD-20755 shipped yet?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:32:18.311Z",
+  "result": {
+    "text": "Hi Lena, good news: order ORD-20755 (merino base layer) has shipped and is currently in transit. It hasn't been delivered yet, so I don't have a delivery date to share. If you need anything else with this order, just let me know.",
+    "toolCalls": [
+      {
+        "id": "toolu_016Uizsn6cQFcoxTMz9TT2xo",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20755"
+        },
+        "output": {
+          "orderId": "ORD-20755",
+          "customer": {
+            "id": "C-1032",
+            "name": "Lena Fischer",
+            "tier": "guest"
+          },
+          "item": "Merino base layer",
+          "category": "apparel",
+          "price": 79,
+          "status": "in_transit",
+          "orderedOn": "2026-09-27",
+          "deliveredOn": null,
+          "daysSinceDelivery": null,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 234,
+      "cacheReadTokens": 4405,
+      "cacheWriteTokens": 597
+    },
+    "costUsd": 0.00041125,
+    "durationMs": 3201,
+    "model": "claude-haiku-5-5"
+  }
+}

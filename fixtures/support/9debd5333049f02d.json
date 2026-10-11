@@ -1,0 +1,77 @@
+{
+  "key": "9debd5333049f02d",
+  "anchorKey": "d7128702c3ece52c",
+  "role": "support",
+  "anchor": "v1::Zoe Marchetti. Cancel my Trail Club membership and refund this year's fee, I never used it.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:56.062Z",
+  "result": {
+    "text": "Hi Zoe, I found your account (C-1012). I can't cancel Trail Club memberships or refund membership fees myself, so I've passed your request to our membership team as ticket ESC-4104. They'll cancel the membership and review the fee refund, and you should hear back within 2 business days.",
+    "toolCalls": [
+      {
+        "id": "toolu_01RBjBTyutpqBF7puFAEgtA7",
+        "name": "mcp__store__find_orders",
+        "input": {
+          "customerName": "Zoe Marchetti"
+        },
+        "output": {
+          "customers": [
+            {
+              "id": "C-1012",
+              "name": "Zoe Marchetti",
+              "tier": "member",
+              "memberSince": "2025-06-11"
+            }
+          ],
+          "orders": [
+            {
+              "orderId": "ORD-30012",
+              "item": "Insulated bottle set",
+              "status": "delivered",
+              "deliveredOn": "2026-09-15",
+              "price": 39
+            },
+            {
+              "orderId": "ORD-20611",
+              "item": "Packable sun hat",
+              "status": "delivered",
+              "deliveredOn": "2026-08-17",
+              "price": 32
+            },
+            {
+              "orderId": "ORD-30072",
+              "item": "Compact camp stove",
+              "status": "delivered",
+              "deliveredOn": "2026-08-13",
+              "price": 89
+            }
+          ]
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01918piacwK91B4gG7U9KP61",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "membership",
+          "summary": "Customer Zoe Marchetti (C-1012, member since 2025-06-11) wants her Trail Club membership cancelled and this year's membership fee refunded. She says she never used the membership."
+        },
+        "output": {
+          "ticketId": "ESC-4104",
+          "category": "membership",
+          "responseTime": "2 business days"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 706,
+      "cacheReadTokens": 7354,
+      "cacheWriteTokens": 1280
+    },
+    "costUsd": 0.0008131400000000001,
+    "durationMs": 5723,
+    "model": "claude-haiku-5-5"
+  }
+}

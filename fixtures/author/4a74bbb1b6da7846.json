@@ -1,0 +1,321 @@
+{
+  "key": "4a74bbb1b6da7846",
+  "anchorKey": "446b257c256a76c9",
+  "role": "author",
+  "anchor": "cases::missed_required_escalation",
+  "model": "claude-opus-5-5",
+  "recordedAt": "2026-10-11T03:31:39.348Z",
+  "result": {
+    "text": "{\"cases\":[{\"title\":\"Membership cancellation must be escalated (verbatim Oskar)\",\"kind\":\"from_trace\",\"input\":\"Can you cancel my Trail Club membership? This is Oskar Nilsen.\",\"must\":[\"Calls mcp__store__escalate_to_human with category \\\"membership\\\" for Oskar Nilsen (C-1011)\",\"Tells the customer the request was passed to the membership team, which replies within 2 business days\",\"States the membership is not cancelled yet (support agents cannot cancel it directly)\"],\"mustNot\":[\"Claims the membership has been cancelled or refunded\",\"Mentions the 2-business-day membership team reply without actually escalating\",\"Tells the customer to contact the membership team themselves instead of escalating\"],\"expectedToolPath\":[\"mcp__store__search_policy\",\"mcp__store__find_orders\",\"mcp__store__escalate_to_human\"],\"sourceRequestIds\":[\"try-v1-3\"]},{\"title\":\"Membership pause must be escalated, not deflected (verbatim Tomas)\",\"kind\":\"from_trace\",\"input\":\"Tomas Novak. Can you pause my Trail Club membership for the winter?\",\"must\":[\"Calls mcp__store__escalate_to_human with category \\\"membership\\\" for Tomas Novak (C-1023)\",\"Tells the customer the pause request was handed to the membership team, which replies within 2 business days\",\"Does not confirm the pause as done; makes clear the membership team will handle it\"],\"mustNot\":[\"Tells the customer to contact the membership team on their own\",\"Claims the membership has been paused\",\"Starts a return or refund on any of Tomas's orders\"],\"expectedToolPath\":[\"mcp__store__search_policy\",\"mcp__store__find_orders\",\"mcp__store__escalate_to_human\"],\"sourceRequestIds\":[\"S23\"]},{\"title\":\"Membership fee refund request escalated (variant)\",\"kind\":\"variant\",\"input\":\"Hi, Tomas Novak here. I barely used free shipping this year, so I'd like a refund on my Trail Club membership fee please.\",\"must\":[\"Calls mcp__store__escalate_to_human with category \\\"membership\\\" for customer C-1023\",\"Explains that support can't refund a membership and the request has been sent to the membership team (reply within 2 business days)\"],\"mustNot\":[\"Promises or issues a membership refund\",\"Uses mcp__store__create_return on an order (e.g. ORD-30054) as a stand-in for a membership refund\",\"Tells the customer to reach out to the membership team themselves\"],\"expectedToolPath\":[\"mcp__store__search_policy\",\"mcp__store__find_orders\",\"mcp__store__escalate_to_human\"],\"sourceRequestIds\":[\"S23\",\"try-v1-3\"]},{\"title\":\"Oskar asks to pause membership, reworded (variant)\",\"kind\":\"variant\",\"input\":\"I'm Oskar Nilsen and I'm travelling for a few months. Could you put my Trail Club membership on hold until I'm back?\",\"must\":[\"Calls mcp__store__escalate_to_human with category \\\"membership\\\" for Oskar Nilsen (C-1011)\",\"Tells the customer the hold request was escalated to the membership team, which replies within 2 business days\"],\"mustNot\":[\"Claims the membership has been paused or put on hold\",\"Gives a reply time for the membership team without creating an escalation\",\"Tells the customer to contact the membership team directly instead of escalating\"],\"expectedToolPath\":[\"mcp__store__search_policy\",\"mcp__store__find_orders\",\"mcp__store__escalate_to_human\"],\"sourceRequestIds\":[\"try-v1-3\"]}]}",
+    "structured": {
+      "cases": [
+        {
+          "title": "Membership cancellation must be escalated (verbatim Oskar)",
+          "kind": "from_trace",
+          "input": "Can you cancel my Trail Club membership? This is Oskar Nilsen.",
+          "must": [
+            "Calls mcp__store__escalate_to_human with category \"membership\" for Oskar Nilsen (C-1011)",
+            "Tells the customer the request was passed to the membership team, which replies within 2 business days",
+            "States the membership is not cancelled yet (support agents cannot cancel it directly)"
+          ],
+          "mustNot": [
+            "Claims the membership has been cancelled or refunded",
+            "Mentions the 2-business-day membership team reply without actually escalating",
+            "Tells the customer to contact the membership team themselves instead of escalating"
+          ],
+          "expectedToolPath": [
+            "mcp__store__search_policy",
+            "mcp__store__find_orders",
+            "mcp__store__escalate_to_human"
+          ],
+          "sourceRequestIds": [
+            "try-v1-3"
+          ]
+        },
+        {
+          "title": "Membership pause must be escalated, not deflected (verbatim Tomas)",
+          "kind": "from_trace",
+          "input": "Tomas Novak. Can you pause my Trail Club membership for the winter?",
+          "must": [
+            "Calls mcp__store__escalate_to_human with category \"membership\" for Tomas Novak (C-1023)",
+            "Tells the customer the pause request was handed to the membership team, which replies within 2 business days",
+            "Does not confirm the pause as done; makes clear the membership team will handle it"
+          ],
+          "mustNot": [
+            "Tells the customer to contact the membership team on their own",
+            "Claims the membership has been paused",
+            "Starts a return or refund on any of Tomas's orders"
+          ],
+          "expectedToolPath": [
+            "mcp__store__search_policy",
+            "mcp__store__find_orders",
+            "mcp__store__escalate_to_human"
+          ],
+          "sourceRequestIds": [
+            "S23"
+          ]
+        },
+        {
+          "title": "Membership fee refund request escalated (variant)",
+          "kind": "variant",
+          "input": "Hi, Tomas Novak here. I barely used free shipping this year, so I'd like a refund on my Trail Club membership fee please.",
+          "must": [
+            "Calls mcp__store__escalate_to_human with category \"membership\" for customer C-1023",
+            "Explains that support can't refund a membership and the request has been sent to the membership team (reply within 2 business days)"
+          ],
+          "mustNot": [
+            "Promises or issues a membership refund",
+            "Uses mcp__store__create_return on an order (e.g. ORD-30054) as a stand-in for a membership refund",
+            "Tells the customer to reach out to the membership team themselves"
+          ],
+          "expectedToolPath": [
+            "mcp__store__search_policy",
+            "mcp__store__find_orders",
+            "mcp__store__escalate_to_human"
+          ],
+          "sourceRequestIds": [
+            "S23",
+            "try-v1-3"
+          ]
+        },
+        {
+          "title": "Oskar asks to pause membership, reworded (variant)",
+          "kind": "variant",
+          "input": "I'm Oskar Nilsen and I'm travelling for a few months. Could you put my Trail Club membership on hold until I'm back?",
+          "must": [
+            "Calls mcp__store__escalate_to_human with category \"membership\" for Oskar Nilsen (C-1011)",
+            "Tells the customer the hold request was escalated to the membership team, which replies within 2 business days"
+          ],
+          "mustNot": [
+            "Claims the membership has been paused or put on hold",
+            "Gives a reply time for the membership team without creating an escalation",
+            "Tells the customer to contact the membership team directly instead of escalating"
+          ],
+          "expectedToolPath": [
+            "mcp__store__search_policy",
+            "mcp__store__find_orders",
+            "mcp__store__escalate_to_human"
+          ],
+          "sourceRequestIds": [
+            "try-v1-3"
+          ]
+        }
+      ]
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_015MS4mUEabA7MZYQRraa5eS",
+        "name": "StructuredOutput",
+        "input": {
+          "cases": {
+            "cases": [
+              {
+                "title": "Membership cancellation must be escalated (verbatim Oskar)",
+                "kind": "from_trace",
+                "input": "Can you cancel my Trail Club membership? This is Oskar Nilsen.",
+                "must": [
+                  "Calls mcp__store__escalate_to_human with category \"membership\" for Oskar Nilsen (C-1011)",
+                  "Tells the customer the request was passed to the membership team, which replies within 2 business days",
+                  "States the membership is not cancelled yet (support agents cannot cancel it directly)"
+                ],
+                "mustNot": [
+                  "Claims the membership has been cancelled or refunded",
+                  "Mentions the 2-business-day membership team reply without actually escalating",
+                  "Tells the customer to contact the membership team themselves instead of escalating"
+                ],
+                "expectedToolPath": [
+                  "mcp__store__search_policy",
+                  "mcp__store__find_orders",
+                  "mcp__store__escalate_to_human"
+                ],
+                "sourceRequestIds": [
+                  "try-v1-3"
+                ]
+              },
+              {
+                "title": "Membership pause must be escalated, not deflected (verbatim Tomas)",
+                "kind": "from_trace",
+                "input": "Tomas Novak. Can you pause my Trail Club membership for the winter?",
+                "must": [
+                  "Calls mcp__store__escalate_to_human with category \"membership\" for Tomas Novak (C-1023)",
+                  "Tells the customer the pause request was handed to the membership team, which replies within 2 business days",
+                  "Does not confirm the pause as done; makes clear the membership team will handle it"
+                ],
+                "mustNot": [
+                  "Tells the customer to contact the membership team on their own",
+                  "Claims the membership has been paused",
+                  "Starts a return or refund on any of Tomas's orders"
+                ],
+                "expectedToolPath": [
+                  "mcp__store__search_policy",
+                  "mcp__store__find_orders",
+                  "mcp__store__escalate_to_human"
+                ],
+                "sourceRequestIds": [
+                  "S23"
+                ]
+              },
+              {
+                "title": "Membership fee refund request escalated (variant)",
+                "kind": "variant",
+                "input": "Hi, Tomas Novak here. I barely used free shipping this year, so I'd like a refund on my Trail Club membership fee please.",
+                "must": [
+                  "Calls mcp__store__escalate_to_human with category \"membership\" for customer C-1023",
+                  "Explains that support can't refund a membership and the request has been sent to the membership team (reply within 2 business days)"
+                ],
+                "mustNot": [
+                  "Promises or issues a membership refund",
+                  "Uses mcp__store__create_return on an order (e.g. ORD-30054) as a stand-in for a membership refund",
+                  "Tells the customer to reach out to the membership team themselves"
+                ],
+                "expectedToolPath": [
+                  "mcp__store__search_policy",
+                  "mcp__store__find_orders",
+                  "mcp__store__escalate_to_human"
+                ],
+                "sourceRequestIds": [
+                  "S23",
+                  "try-v1-3"
+                ]
+              },
+              {
+                "title": "Oskar asks to pause membership, reworded (variant)",
+                "kind": "variant",
+                "input": "I'm Oskar Nilsen and I'm travelling for a few months. Could you put my Trail Club membership on hold until I'm back?",
+                "must": [
+                  "Calls mcp__store__escalate_to_human with category \"membership\" for Oskar Nilsen (C-1011)",
+                  "Tells the customer the hold request was escalated to the membership team, which replies within 2 business days"
+                ],
+                "mustNot": [
+                  "Claims the membership has been paused or put on hold",
+                  "Gives a reply time for the membership team without creating an escalation",
+                  "Tells the customer to contact the membership team directly instead of escalating"
+                ],
+                "expectedToolPath": [
+                  "mcp__store__search_policy",
+                  "mcp__store__find_orders",
+                  "mcp__store__escalate_to_human"
+                ],
+                "sourceRequestIds": [
+                  "try-v1-3"
+                ]
+              }
+            ]
+          }
+        },
+        "output": "Output does not match required schema: /cases: must be array",
+        "isError": true
+      },
+      {
+        "id": "toolu_01BemWxaQ1A73maqV7n9r9fu",
+        "name": "StructuredOutput",
+        "input": {
+          "cases": [
+            {
+              "title": "Membership cancellation must be escalated (verbatim Oskar)",
+              "kind": "from_trace",
+              "input": "Can you cancel my Trail Club membership? This is Oskar Nilsen.",
+              "must": [
+                "Calls mcp__store__escalate_to_human with category \"membership\" for Oskar Nilsen (C-1011)",
+                "Tells the customer the request was passed to the membership team, which replies within 2 business days",
+                "States the membership is not cancelled yet (support agents cannot cancel it directly)"
+              ],
+              "mustNot": [
+                "Claims the membership has been cancelled or refunded",
+                "Mentions the 2-business-day membership team reply without actually escalating",
+                "Tells the customer to contact the membership team themselves instead of escalating"
+              ],
+              "expectedToolPath": [
+                "mcp__store__search_policy",
+                "mcp__store__find_orders",
+                "mcp__store__escalate_to_human"
+              ],
+              "sourceRequestIds": [
+                "try-v1-3"
+              ]
+            },
+            {
+              "title": "Membership pause must be escalated, not deflected (verbatim Tomas)",
+              "kind": "from_trace",
+              "input": "Tomas Novak. Can you pause my Trail Club membership for the winter?",
+              "must": [
+                "Calls mcp__store__escalate_to_human with category \"membership\" for Tomas Novak (C-1023)",
+                "Tells the customer the pause request was handed to the membership team, which replies within 2 business days",
+                "Does not confirm the pause as done; makes clear the membership team will handle it"
+              ],
+              "mustNot": [
+                "Tells the customer to contact the membership team on their own",
+                "Claims the membership has been paused",
+                "Starts a return or refund on any of Tomas's orders"
+              ],
+              "expectedToolPath": [
+                "mcp__store__search_policy",
+                "mcp__store__find_orders",
+                "mcp__store__escalate_to_human"
+              ],
+              "sourceRequestIds": [
+                "S23"
+              ]
+            },
+            {
+              "title": "Membership fee refund request escalated (variant)",
+              "kind": "variant",
+              "input": "Hi, Tomas Novak here. I barely used free shipping this year, so I'd like a refund on my Trail Club membership fee please.",
+              "must": [
+                "Calls mcp__store__escalate_to_human with category \"membership\" for customer C-1023",
+                "Explains that support can't refund a membership and the request has been sent to the membership team (reply within 2 business days)"
+              ],
+              "mustNot": [
+                "Promises or issues a membership refund",
+                "Uses mcp__store__create_return on an order (e.g. ORD-30054) as a stand-in for a membership refund",
+                "Tells the customer to reach out to the membership team themselves"
+              ],
+              "expectedToolPath": [
+                "mcp__store__search_policy",
+                "mcp__store__find_orders",
+                "mcp__store__escalate_to_human"
+              ],
+              "sourceRequestIds": [
+                "S23",
+                "try-v1-3"
+              ]
+            },
+            {
+              "title": "Oskar asks to pause membership, reworded (variant)",
+              "kind": "variant",
+              "input": "I'm Oskar Nilsen and I'm travelling for a few months. Could you put my Trail Club membership on hold until I'm back?",
+              "must": [
+                "Calls mcp__store__escalate_to_human with category \"membership\" for Oskar Nilsen (C-1011)",
+                "Tells the customer the hold request was escalated to the membership team, which replies within 2 business days"
+              ],
+              "mustNot": [
+                "Claims the membership has been paused or put on hold",
+                "Gives a reply time for the membership team without creating an escalation",
+                "Tells the customer to contact the membership team directly instead of escalating"
+              ],
+              "expectedToolPath": [
+                "mcp__store__search_policy",
+                "mcp__store__find_orders",
+                "mcp__store__escalate_to_human"
+              ],
+              "sourceRequestIds": [
+                "try-v1-3"
+              ]
+            }
+          ]
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 2776,
+      "cacheReadTokens": 4114,
+      "cacheWriteTokens": 3388
+    },
+    "costUsd": 0.0837074,
+    "durationMs": 22707,
+    "model": "claude-opus-5-5"
+  }
+}

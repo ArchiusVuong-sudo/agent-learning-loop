@@ -1,0 +1,58 @@
+{
+  "key": "3a208677fd8567a5",
+  "anchorKey": "b800228aaabdf193",
+  "role": "analyst",
+  "anchor": "Customer message:\nKai Halvorsen. The down jacket from ORD-20633 is too big. Can I swap it for a medium?\n\nTool calls:\n1. mcp__store__lookup_order({\"orderId\":\"ORD-20633\"}) -> {\"orderId\":\"ORD-20633\",\"customer\":{\"id\":\"C-1015\",\"name\":\"Kai Halvorsen\",\"tier\":\"guest\"},\"item\":\"Alpine down jacket\",\"category\":",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T03:31:06.394Z",
+  "result": {
+    "text": "{\"goal\":\"Exchange down jacket for a medium size\",\"outcome\":\"unresolved\",\"behaviors\":[\"checked_eligibility\"],\"summary\":\"The agent checked eligibility, which showed the exchange qualified, then wrongly said it couldn't exchange and offered a return instead. The return wasn't started; it awaits customer confirmation.\"}",
+    "structured": {
+      "goal": "Exchange down jacket for a medium size",
+      "outcome": "unresolved",
+      "behaviors": [
+        "checked_eligibility"
+      ],
+      "summary": "The agent checked eligibility, which showed the exchange qualified, then wrongly said it couldn't exchange and offered a return instead. The return wasn't started; it awaits customer confirmation."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_015PgvWNYeQn24sTfrN11gjz",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Exchange down jacket for a medium size",
+          "outcome": "unresolved",
+          "behaviors": [
+            "checked_eligibility"
+          ],
+          "summary": "The agent looked up the order and checked eligibility, which showed the item qualified under the exchanges policy. It then claimed it couldn't do an exchange, offered a return instead, and left the return unstarted pending the customer's confirmation."
+        },
+        "output": "Output does not match required schema: /summary: must NOT have more than 240 characters (got 251)",
+        "isError": true
+      },
+      {
+        "id": "toolu_01FtFcG1jzmJYYCpvjNyRzUv",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Exchange down jacket for a medium size",
+          "outcome": "unresolved",
+          "behaviors": [
+            "checked_eligibility"
+          ],
+          "summary": "The agent checked eligibility, which showed the exchange qualified, then wrongly said it couldn't exchange and offered a return instead. The return wasn't started; it awaits customer confirmation."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 425,
+      "cacheReadTokens": 3154,
+      "cacheWriteTokens": 1716
+    },
+    "costUsd": 0.0117322,
+    "durationMs": 5032,
+    "model": "claude-sonnet-5-5"
+  }
+}

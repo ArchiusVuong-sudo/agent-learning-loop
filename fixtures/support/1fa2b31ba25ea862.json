@@ -1,0 +1,38 @@
+{
+  "key": "1fa2b31ba25ea862",
+  "anchorKey": "ad487d57925e08f0",
+  "role": "support",
+  "anchor": "v1::Sofia Lindgren. I opened the action camera from ORD-20652 but it doesn't fit my helmet mount. Can I return it?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:30:11.085Z",
+  "result": {
+    "text": "Your return is started, Sofia. The return number is RMA-20652, and the refund is $254.15. That amount reflects a 15% restocking fee, since the camera was opened. It will be issued 5-7 business days after the warehouse receives the item.",
+    "toolCalls": [
+      {
+        "id": "toolu_01UBV3vbmBfMQuEAU5cz7poX",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20652",
+          "reason": "wrong_size"
+        },
+        "output": {
+          "returnId": "RMA-20652",
+          "orderId": "ORD-20652",
+          "refund": 254.15,
+          "restockingFeePct": 15,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 753,
+      "cacheReadTokens": 4441,
+      "cacheWriteTokens": 1023
+    },
+    "costUsd": 0.0007544100000000001,
+    "durationMs": 5703,
+    "model": "claude-haiku-5-5"
+  }
+}

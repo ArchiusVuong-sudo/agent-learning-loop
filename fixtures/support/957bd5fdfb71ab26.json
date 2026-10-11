@@ -1,0 +1,38 @@
+{
+  "key": "957bd5fdfb71ab26",
+  "anchorKey": "f9b2ea9d45a396b7",
+  "role": "support",
+  "anchor": "v1::Mei Chen, ORD-20671. I'd like to return the softshell jacket, tags are still on.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:30:13.828Z",
+  "result": {
+    "text": "Hi Mei, your return for ORD-20671 is started under return number RMA-20671. You'll get a full refund of $119 with no restocking fee, processed 5–7 business days after the warehouse receives the jacket. Please keep the tags on when you send it back.",
+    "toolCalls": [
+      {
+        "id": "toolu_01FoosgjykW815f7m62vzdTB",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20671",
+          "reason": "changed_mind"
+        },
+        "output": {
+          "returnId": "RMA-20671",
+          "orderId": "ORD-20671",
+          "refund": 119,
+          "restockingFeePct": 0,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 414,
+      "cacheReadTokens": 4415,
+      "cacheWriteTokens": 794
+    },
+    "costUsd": 0.0005416500000000001,
+    "durationMs": 3861,
+    "model": "claude-haiku-5-5"
+  }
+}

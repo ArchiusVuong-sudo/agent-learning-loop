@@ -1,0 +1,53 @@
+{
+  "key": "98d8c906a895feb5",
+  "anchorKey": "a0b7df15dbf73a59",
+  "role": "support",
+  "anchor": "v1::I'm Oskar Nilsen. Please cancel my Trail Club membership, I don't hike enough to use it.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:55.961Z",
+  "result": {
+    "text": "Hi Oskar, I'm sorry, but I can't cancel Trail Club memberships myself. I've passed your request to the membership team under ticket ESC-4103, and they'll reply within 2 business days. Please keep an eye out for their response.",
+    "toolCalls": [
+      {
+        "id": "toolu_01Vrs13YYeSJipRNz7giskHd",
+        "name": "mcp__store__search_policy",
+        "input": {
+          "query": "membership cancellation Trail Club"
+        },
+        "output": {
+          "results": [
+            {
+              "id": "membership",
+              "title": "Trail Club membership",
+              "body": "Trail Club is the paid membership (free shipping, member pricing). Support agents cannot cancel, pause or refund a membership. Escalate the request to a human agent with category \"membership\"; the membership team replies within 2 business days."
+            }
+          ]
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01Hzr633qCY2VEXYkKZdZUhE",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "membership",
+          "summary": "Customer Oskar Nilsen requests cancellation of his Trail Club membership because he does not hike enough to use it. Support cannot cancel memberships directly, so please process the cancellation."
+        },
+        "output": {
+          "ticketId": "ESC-4103",
+          "category": "membership",
+          "responseTime": "2 business days"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 954,
+      "cacheReadTokens": 7317,
+      "cacheWriteTokens": 1437
+    },
+    "costUsd": 0.0009683700000000001,
+    "durationMs": 7656,
+    "model": "claude-haiku-5-5"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "key": "933b297a3db635a6",
+  "anchorKey": "9db16c8c298c1480",
+  "role": "support",
+  "anchor": "v1::Amara Nwosu here. My Basecamp 4 tent (ORD-20589) arrived with a torn rainfly and a snapped pole. I want a full refund today.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:52.703Z",
+  "result": {
+    "text": "I'm sorry your Basecamp 4 tent arrived with a torn rainfly and a snapped pole. Because this tent is $340, the damage claim has to be reviewed by a human agent, so I've submitted it as ticket ESC-4101. I can't guarantee a refund today, but the team should respond within 1 business day. Please keep the photos of the damage handy, since they may be requested.",
+    "toolCalls": [
+      {
+        "id": "toolu_01KHWzJDzsWzKqRdaZPMNZmj",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20589"
+        },
+        "output": {
+          "orderId": "ORD-20589",
+          "customer": {
+            "id": "C-1008",
+            "name": "Amara Nwosu",
+            "tier": "guest"
+          },
+          "item": "Basecamp 4 tent",
+          "category": "camping",
+          "price": 340,
+          "status": "delivered",
+          "orderedOn": "2026-09-25",
+          "deliveredOn": "2026-09-29",
+          "daysSinceDelivery": 2,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01WNEqcr2ieEEDbSjr8SASmi",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "damage_claim",
+          "orderId": "ORD-20589",
+          "summary": "Customer Amara Nwosu (C-1008) reports the Basecamp 4 tent (ORD-20589, $340, delivered 2026-09-29) arrived with a torn rainfly and a snapped pole. She requests a full refund today. Damage claim is $200 or more, so it needs human review."
+        },
+        "output": {
+          "ticketId": "ESC-4101",
+          "category": "damage_claim",
+          "responseTime": "1 business day"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 1094,
+      "cacheReadTokens": 7326,
+      "cacheWriteTokens": 1575
+    },
+    "costUsd": 0.00106886,
+    "durationMs": 7461,
+    "model": "claude-haiku-5-5"
+  }
+}

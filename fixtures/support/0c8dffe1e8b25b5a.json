@@ -1,0 +1,73 @@
+{
+  "key": "0c8dffe1e8b25b5a",
+  "anchorKey": "22796353ec89abcf",
+  "role": "support",
+  "anchor": "v1::Leila Haddad, order ORD-20602. The 65L backpack came with a ripped hip belt, clearly from shipping. Refund please.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T03:29:54.149Z",
+  "result": {
+    "text": "I'm sorry the backpack arrived with a ripped hip belt. Because the item is $260, the system requires a human agent to review damage claims at that value, so I couldn't start the refund myself. I've sent your claim for order ORD-20602 to our team as ticket ESC-4102, and they'll respond within 1 business day. I can't guarantee the refund amount until they've reviewed it.",
+    "toolCalls": [
+      {
+        "id": "toolu_01B9vtj2cG8muGXrdsacNkJ1",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20602"
+        },
+        "output": {
+          "orderId": "ORD-20602",
+          "customer": {
+            "id": "C-1010",
+            "name": "Leila Haddad",
+            "tier": "guest"
+          },
+          "item": "Expedition 65L backpack",
+          "category": "camping",
+          "price": 260,
+          "status": "delivered",
+          "orderedOn": "2026-09-23",
+          "deliveredOn": "2026-09-27",
+          "daysSinceDelivery": 4,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01D4bDniXuHnLxTL72B8VV4n",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20602",
+          "reason": "damaged_in_transit"
+        },
+        "output": "Return refused: Damage claims of $200 or more need review by a human agent. Escalate with category \"damage_claim\" and do not promise a refund. Use escalate_to_human instead.",
+        "isError": true
+      },
+      {
+        "id": "toolu_013xf1ErzKf9X4vzLgiYDwv3",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "damage_claim",
+          "orderId": "ORD-20602",
+          "summary": "Leila Haddad (guest) reports the Expedition 65L backpack ($260, delivered 2026-09-27, unopened) arrived with a ripped hip belt from shipping damage and is requesting a refund. The automatic return was refused because damage claims of $200 or more require human review."
+        },
+        "output": {
+          "ticketId": "ESC-4102",
+          "category": "damage_claim",
+          "responseTime": "1 business day"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 773,
+      "cacheReadTokens": 7473,
+      "cacheWriteTokens": 1377
+    },
+    "costUsd": 0.0008688300000000001,
+    "durationMs": 6155,
+    "model": "claude-haiku-5-5"
+  }
+}
