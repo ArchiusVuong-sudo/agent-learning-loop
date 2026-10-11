@@ -146,8 +146,17 @@ export function TraceDetail({ row }: { row: TraceRow }) {
   );
 }
 
-/** Window event the try box sends with a trace id so the list opens it after the refresh. */
-export const OPEN_TRACE_EVENT = 'open-trace';
+const OPEN_TRACE_EVENT = 'open-trace';
+const pending = globalThis as unknown as { __openTrace?: string };
+
+/**
+ * Asks the trace list to open a trace once it shows up after the refresh. The id is also kept
+ * for a list that mounts later, as on the first trace, when the list replaces the empty state.
+ */
+export function requestOpenTrace(traceId: string): void {
+  pending.__openTrace = traceId;
+  window.dispatchEvent(new CustomEvent(OPEN_TRACE_EVENT, { detail: traceId }));
+}
 
 export function TraceList({ rows, initialOpen }: { rows: TraceRow[]; initialOpen?: string | null }) {
   const [open, setOpen] = useState<string | null>(initialOpen ?? null);
@@ -159,7 +168,8 @@ export function TraceList({ rows, initialOpen }: { rows: TraceRow[]; initialOpen
   useEffect(() => {
     const fromHash = () => setWanted(window.location.hash.slice(1) || null);
     const fromEvent = (event: Event) => setWanted((event as CustomEvent<string>).detail);
-    fromHash();
+    if (pending.__openTrace) setWanted(pending.__openTrace);
+    else fromHash();
     window.addEventListener('hashchange', fromHash);
     window.addEventListener(OPEN_TRACE_EVENT, fromEvent);
     return () => {
@@ -173,6 +183,7 @@ export function TraceList({ rows, initialOpen }: { rows: TraceRow[]; initialOpen
     if (!match) return;
     setOpen(match.trace.traceId);
     setWanted(null);
+    if (pending.__openTrace === wanted) pending.__openTrace = undefined;
     setTimeout(() => document.getElementById(`trace-${match.trace.traceId}`)?.scrollIntoView({ block: 'center' }), 50);
   }, [rows, wanted]);
   return (

@@ -3,7 +3,7 @@
 import { Send, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { ActionError, postJson, useAction } from './client';
-import { OPEN_TRACE_EVENT } from './trace-list';
+import { requestOpenTrace } from './trace-list';
 import { Button, Spinner } from './ui';
 
 export function TryBox({ suggestions, liveVersion, replay }: { suggestions: string[]; liveVersion: string; replay: boolean }) {
@@ -14,7 +14,7 @@ export function TryBox({ suggestions, liveVersion, replay }: { suggestions: stri
     void run(async () => {
       const out = await postJson<{ traceId: string }>('/api/try', { message: text });
       setMessage('');
-      window.dispatchEvent(new CustomEvent(OPEN_TRACE_EVENT, { detail: out.traceId }));
+      requestOpenTrace(out.traceId);
       return out;
     });
   };
