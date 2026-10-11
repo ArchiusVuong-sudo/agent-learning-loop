@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { body, handle } from '@/lib/api';
 import { num, one } from '@/lib/db';
+import { LlmError, getProvider } from '@/lib/llm';
+import type { ReplayProvider } from '@/lib/llm/replay';
 import { runSupport } from '@/lib/loop/runner';
 import { liveVersion } from '@/lib/loop/versions';
 
@@ -15,6 +17,11 @@ export async function POST(request: Request) {
     const { message } = await body(request, input.parse);
     // Request ids count up per prompt version (try-v1-1, try-v1-2, ...), as in the recorded walkthrough.
     const version = (await liveVersion()).id;
+    // Replay can only answer recorded messages. Refuse others up front, so no half-run trace is left behind.
+    const provider = getProvider();
+    if (provider.mode === 'replay' && !(provider as ReplayProvider).has({ role: 'support', anchor: `${version}::${message}` })) {
+      throw new LlmError('Replay mode answers the three suggested messages. Your own message needs live mode (a Claude Code login or ANTHROPIC_API_KEY).', 'replay_miss');
+    }
     const tried = await one('SELECT COUNT(*) AS n FROM trace_checks WHERE source = ? AND prompt_version = ?', ['try', version], (row) => num(row.n));
     const out = await runSupport(message, { source: 'try', requestId: `try-${version}-${(tried ?? 0) + 1}`, promptVersion: version });
     return { traceId: out.traceId, passed: out.check.passed, reply: out.trace.reply };

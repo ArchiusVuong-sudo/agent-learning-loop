@@ -40,10 +40,11 @@ export async function startSeedTraffic(): Promise<Job> {
   });
 }
 
-/** Tags every seed and Try trace that has no signals yet. */
+/** Tags every seed and Try trace that has no signals yet, skipping runs that errored. */
 export async function startAnalysis(): Promise<Job> {
   const [traces, signals, checks] = await Promise.all([listSupportTraces({ sources: ['seed', 'try'] }), getSignals(), getChecks()]);
-  const todo = traces.filter((t) => !signals.has(t.traceId));
+  // A run that errored has no reply to tag; its failed check already shows on the Traces page.
+  const todo = traces.filter((t) => !signals.has(t.traceId) && !t.error);
   return startJob('analyze', todo.length, async (job) => {
     const results = await mapPool(
       todo,

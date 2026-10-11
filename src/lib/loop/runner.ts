@@ -17,11 +17,19 @@ export interface SupportRun {
 export async function runSupport(message: string, opts: { source: TraceSource; requestId: string; promptVersion?: string }): Promise<SupportRun> {
   const requestContext = new RequestContext();
   if (opts.promptVersion) requestContext.set(CTX_PROMPT_VERSION, opts.promptVersion);
-  const { traceId } = (await agents().supportAgent.generate(message, {
-    requestContext,
-    tracingOptions: { metadata: { source: opts.source, requestId: opts.requestId } },
-  })) as { traceId?: string };
-  if (!traceId) throw new Error('The support run produced no trace id');
+  // The trace id is set up front, so a run that fails still gets a saved (failed) check and never
+  // shows as running forever.
+  const traceId = globalThis.crypto.randomUUID().replace(/-/g, '');
+  try {
+    await agents().supportAgent.generate(message, {
+      requestContext,
+      tracingOptions: { traceId, metadata: { source: opts.source, requestId: opts.requestId } },
+    });
+  } catch (error) {
+    const failed = await getTraceView(traceId).catch(() => null);
+    if (failed) await checkTrace(failed).catch(() => undefined);
+    throw error;
+  }
   const trace = await getTraceView(traceId);
   if (!trace) throw new Error(`Trace ${traceId} was not found in storage`);
   const check = await checkTrace(trace);
