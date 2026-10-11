@@ -134,6 +134,7 @@ The Mastra server routes are mounted at `/api/mastra`, for example `GET /api/mas
 - All data is synthetic: customers, orders, policies and messages are made up, and every number on screen comes from this app's own runs.
 - The prompt version travels in `requestContext` and the experiment metadata. Mastra's own agent versions need the Mastra editor, which this demo does not run.
 - The agent wrapper is a small Mastra `Agent` subclass modeled on Mastra's Claude Agent SDK integration, so it can switch between the live and replay providers and take the system prompt per run.
+- Replay serves repeated recordings of the same request in the order they were recorded. To see the numbers in the table above, send the three suggested Try messages in order before the gate; another order or a skipped message shifts the v1 counts by a case or two.
 - Jobs run in the Next.js process and the databases are local SQLite files, so this is a single-user demo.
 
 What production would add:
