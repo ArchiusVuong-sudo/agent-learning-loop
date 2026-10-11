@@ -1,0 +1,49 @@
+{
+  "key": "4797107fb9755e24",
+  "anchorKey": "e907aa37e1f2a54c",
+  "role": "support",
+  "anchor": "v1::I opened my trail headphones 20 days ago, can I still return them?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:19:05.428Z",
+  "result": {
+    "text": "I'm sorry, but opened headphones can generally only be returned within 14 days of delivery, and that window has passed. Because the clock starts at delivery and you opened them 20 days ago, they were delivered at least 20 days ago, so a standard return isn't available. If the headphones are defective, they're still covered by the warranty, and I can start a warranty claim for you. If you share your order number, I can confirm the details on your specific order.",
+    "toolCalls": [
+      {
+        "id": "toolu_012BGtAKyj9XVcWyV38BQsbh",
+        "name": "mcp__store__search_policy",
+        "input": {
+          "query": "opened electronics return"
+        },
+        "output": {
+          "results": [
+            {
+              "id": "opened-electronics",
+              "title": "Opened electronics",
+              "body": "Opened electronics (headphones, GPS units, headlamps, action cameras, watches) can be returned within 14 days of delivery. A 15% restocking fee is deducted from the refund. After 14 days, opened electronics are covered by warranty only."
+            },
+            {
+              "id": "returns-general",
+              "title": "Returns",
+              "body": "Most items can be returned within 30 days of delivery for a full refund. Opened electronics have a shorter window (see \"Opened electronics\"). Final-sale items cannot be returned. Always confirm eligibility for the specific order before starting a return."
+            },
+            {
+              "id": "final-sale",
+              "title": "Final sale",
+              "body": "Items marked final sale (clearance) cannot be returned or exchanged. They are still covered by the warranty against manufacturing defects."
+            }
+          ]
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 826,
+      "cacheReadTokens": 4387,
+      "cacheWriteTokens": 1031
+    },
+    "costUsd": 0.00079057,
+    "durationMs": 6106,
+    "model": "claude-haiku-5-5"
+  }
+}

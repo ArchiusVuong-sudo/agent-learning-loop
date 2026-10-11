@@ -1,0 +1,58 @@
+{
+  "key": "93fa7d7bf1b0ab30",
+  "anchorKey": "aab0e5675e62b0fd",
+  "role": "support",
+  "anchor": "v2::Hi, this is Ana Kovac. My headlamp on order ORD-20694 showed up with the lens cracked right out of the box. Am I able to get my money back?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:17:08.049Z",
+  "result": {
+    "text": "Yes, you're eligible for a full refund of $59 with no restocking fee. I've started return RMA-20694 for order ORD-20694 because the headlamp arrived damaged. Your refund will be issued 5–7 business days after the item reaches our warehouse.",
+    "toolCalls": [
+      {
+        "id": "toolu_01BN7jVk85ZrTuymHpxcHkqm",
+        "name": "mcp__store__check_return_eligibility",
+        "input": {
+          "orderId": "ORD-20694",
+          "reason": "damaged_in_transit"
+        },
+        "output": {
+          "orderId": "ORD-20694",
+          "restockingFeePct": 0,
+          "refundEstimate": 59,
+          "windowDays": 7,
+          "eligible": true,
+          "requiresEscalation": false,
+          "policyId": "damaged-in-transit",
+          "daysSinceDelivery": 1,
+          "explanation": "Damaged in transit and under $200: full refund, no restocking fee."
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01MvGsMoK9nJ8nf5xciPUPNv",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20694",
+          "reason": "damaged_in_transit"
+        },
+        "output": {
+          "returnId": "RMA-20694",
+          "orderId": "ORD-20694",
+          "refund": 59,
+          "restockingFeePct": 0,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 414,
+      "cacheReadTokens": 7062,
+      "cacheWriteTokens": 1692
+    },
+    "costUsd": 0.00075142,
+    "durationMs": 4655,
+    "model": "claude-haiku-5-5"
+  }
+}

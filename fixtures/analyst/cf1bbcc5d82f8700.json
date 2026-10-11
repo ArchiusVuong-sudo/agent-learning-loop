@@ -1,0 +1,64 @@
+{
+  "key": "cf1bbcc5d82f8700",
+  "anchorKey": "ef858a699998cb60",
+  "role": "analyst",
+  "anchor": "Customer message:\nCaleb Moreau, order ORD-20645. The locking clip on one of my trekking poles snapped on the trail. What are my options?\n\nTool calls:\n1. mcp__store__lookup_order({\"orderId\":\"ORD-20645\"}) -> {\"orderId\":\"ORD-20645\",\"customer\":{\"id\":\"C-1017\",\"name\":\"Caleb Moreau\",\"tier\":\"guest\"},\"item\":",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T07:15:48.963Z",
+  "result": {
+    "text": "{\"goal\":\"Options for trekking pole with snapped locking clip\",\"outcome\":\"escalated\",\"behaviors\":[\"checked_eligibility\",\"escalated_correctly\",\"answered_from_policy\"],\"summary\":\"Agent looked up the order and searched policy, then escalated the defect to a human under warranty (ESC-4103) and told the customer to keep the pole and take photos. It also cited an unsupported \\\"30-day return window\\\".\"}",
+    "structured": {
+      "goal": "Options for trekking pole with snapped locking clip",
+      "outcome": "escalated",
+      "behaviors": [
+        "checked_eligibility",
+        "escalated_correctly",
+        "answered_from_policy"
+      ],
+      "summary": "Agent looked up the order and searched policy, then escalated the defect to a human under warranty (ESC-4103) and told the customer to keep the pole and take photos. It also cited an unsupported \"30-day return window\"."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_011h1YrcuEtuAb48DWkDaYRy",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Options for trekking pole with snapped locking clip",
+          "outcome": "escalated",
+          "behaviors": [
+            "checked_eligibility",
+            "escalated_correctly",
+            "answered_from_policy"
+          ],
+          "summary": "Agent looked up the order and searched policy, then escalated the defect to a human under warranty (ESC-4103) and told the customer to keep the pole and take photos. The reply also mentioned a \"30-day return window\" that no tool result supports."
+        },
+        "output": "Output does not match required schema: /summary: must NOT have more than 240 characters (got 245)",
+        "isError": true
+      },
+      {
+        "id": "toolu_01L4G5LFLotgnGK7kxB9s1d2",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Options for trekking pole with snapped locking clip",
+          "outcome": "escalated",
+          "behaviors": [
+            "checked_eligibility",
+            "escalated_correctly",
+            "answered_from_policy"
+          ],
+          "summary": "Agent looked up the order and searched policy, then escalated the defect to a human under warranty (ESC-4103) and told the customer to keep the pole and take photos. It also cited an unsupported \"30-day return window\"."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 470,
+      "cacheReadTokens": 3503,
+      "cacheWriteTokens": 2086
+    },
+    "costUsd": 0.013751200000000002,
+    "durationMs": 5108,
+    "model": "claude-sonnet-5-5"
+  }
+}

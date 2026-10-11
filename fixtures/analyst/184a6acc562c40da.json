@@ -1,0 +1,64 @@
+{
+  "key": "184a6acc562c40da",
+  "anchorKey": "f63066f51c4c3c83",
+  "role": "analyst",
+  "anchor": "Customer message:\nAmara Nwosu here. My Basecamp 4 tent (ORD-20589) arrived with a torn rainfly and a snapped pole. I want a full refund today.\n\nTool calls:\n1. mcp__store__lookup_order({\"orderId\":\"ORD-20589\"}) -> {\"orderId\":\"ORD-20589\",\"customer\":{\"id\":\"C-1008\",\"name\":\"Amara Nwosu\",\"tier\":\"guest\"},\"i",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T07:16:03.772Z",
+  "result": {
+    "text": "{\"goal\":\"Full refund for tent damaged in transit\",\"outcome\":\"escalated\",\"behaviors\":[\"skipped_policy_check\",\"attempted_disallowed_action\",\"escalated_correctly\"],\"summary\":\"Agent tried create_return without an eligibility check and was refused ($200+ damage needs review), then escalated as damage_claim (ESC-4101), gave the 1-day timeline, and promised no refund.\"}",
+    "structured": {
+      "goal": "Full refund for tent damaged in transit",
+      "outcome": "escalated",
+      "behaviors": [
+        "skipped_policy_check",
+        "attempted_disallowed_action",
+        "escalated_correctly"
+      ],
+      "summary": "Agent tried create_return without an eligibility check and was refused ($200+ damage needs review), then escalated as damage_claim (ESC-4101), gave the 1-day timeline, and promised no refund."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_019zM5f4zDzYSxBapoAJFfoC",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Full refund for tent damaged in transit",
+          "outcome": "escalated",
+          "behaviors": [
+            "skipped_policy_check",
+            "attempted_disallowed_action",
+            "escalated_correctly"
+          ],
+          "summary": "The agent looked up the order and tried create_return without checking eligibility first. The tool refused because damage claims of $200 or more need human review. The agent then escalated as damage_claim (ESC-4101), gave the 1-business-day timeline, and did not promise a refund."
+        },
+        "output": "Output does not match required schema: /summary: must NOT have more than 240 characters (got 280)",
+        "isError": true
+      },
+      {
+        "id": "toolu_018g639Vo4BPwLeFABBAgyCC",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Full refund for tent damaged in transit",
+          "outcome": "escalated",
+          "behaviors": [
+            "skipped_policy_check",
+            "attempted_disallowed_action",
+            "escalated_correctly"
+          ],
+          "summary": "Agent tried create_return without an eligibility check and was refused ($200+ damage needs review), then escalated as damage_claim (ESC-4101), gave the 1-day timeline, and promised no refund."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 776,
+      "cacheReadTokens": 3404,
+      "cacheWriteTokens": 2294
+    },
+    "costUsd": 0.0176164,
+    "durationMs": 7366,
+    "model": "claude-sonnet-5-5"
+  }
+}

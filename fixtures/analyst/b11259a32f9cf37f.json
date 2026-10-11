@@ -1,0 +1,44 @@
+{
+  "key": "b11259a32f9cf37f",
+  "anchorKey": "bb1b3b3892c2b775",
+  "role": "analyst",
+  "anchor": "Customer message:\nCan you cancel my Trail Club membership? This is Oskar Nilsen.\n\nTool calls:\n1. mcp__store__escalate_to_human({\"category\":\"membership\",\"summary\":\"Customer Oskar Nilsen is requesting cancellation of his Trail Club membership. Membership changes require a human agent.\"}) -> {\"ticketId",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T07:20:47.487Z",
+  "result": {
+    "text": "{\"goal\":\"Cancel Trail Club membership\",\"outcome\":\"escalated\",\"behaviors\":[\"escalated_correctly\"],\"summary\":\"The agent escalated the membership cancellation request to a human via a ticket (ESC-4112) and told the customer to expect a response in 2 business days, without promising cancellation.\"}",
+    "structured": {
+      "goal": "Cancel Trail Club membership",
+      "outcome": "escalated",
+      "behaviors": [
+        "escalated_correctly"
+      ],
+      "summary": "The agent escalated the membership cancellation request to a human via a ticket (ESC-4112) and told the customer to expect a response in 2 business days, without promising cancellation."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_01LkekVLKKo9r6xvwVDFRcWy",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Cancel Trail Club membership",
+          "outcome": "escalated",
+          "behaviors": [
+            "escalated_correctly"
+          ],
+          "summary": "The agent escalated the membership cancellation request to a human via a ticket (ESC-4112) and told the customer to expect a response in 2 business days, without promising cancellation."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 196,
+      "cacheReadTokens": 861,
+      "cacheWriteTokens": 1131
+    },
+    "costUsd": 0.0068461,
+    "durationMs": 4414,
+    "model": "claude-sonnet-5-5"
+  }
+}

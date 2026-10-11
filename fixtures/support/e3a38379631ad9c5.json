@@ -4,38 +4,12 @@
   "role": "support",
   "anchor": "v1::Ana Kovac. The headlamp from ORD-20694 arrived with a cracked lens. Can I get a refund?",
   "model": "claude-haiku-5-5",
-  "recordedAt": "2026-10-11T03:30:18.097Z",
+  "recordedAt": "2026-10-11T07:15:04.030Z",
   "result": {
-    "text": "Hi Ana, I'm sorry your Lumen 400 headlamp arrived with a cracked lens. I've started return RMA-20694 for order ORD-20694, and you'll get a full refund of $59 with no restocking fee. The refund will be issued 5–7 business days after the warehouse receives the item.",
+    "text": "Hi Ana, I'm sorry your headlamp arrived with a cracked lens. I've started return RMA-20694 for order ORD-20694, which qualifies for a full refund of $59.00 with no restocking fee. The refund will be issued 5–7 business days after the item reaches our warehouse.",
     "toolCalls": [
       {
-        "id": "toolu_01J12r6u572cvoHHMhk4h1PB",
-        "name": "mcp__store__lookup_order",
-        "input": {
-          "orderId": "ORD-20694"
-        },
-        "output": {
-          "orderId": "ORD-20694",
-          "customer": {
-            "id": "C-1022",
-            "name": "Ana Kovac",
-            "tier": "guest"
-          },
-          "item": "Lumen 400 headlamp",
-          "category": "electronics",
-          "price": 59,
-          "status": "delivered",
-          "orderedOn": "2026-09-26",
-          "deliveredOn": "2026-09-30",
-          "daysSinceDelivery": 1,
-          "opened": false,
-          "finalSale": false,
-          "today": "2026-10-01"
-        },
-        "isError": false
-      },
-      {
-        "id": "toolu_01VyZqMTcTtZtX6gBVQRzFn4",
+        "id": "toolu_01PneeHkAJtJ9C4fMhjbXx4r",
         "name": "mcp__store__create_return",
         "input": {
           "orderId": "ORD-20694",
@@ -52,13 +26,13 @@
       }
     ],
     "usage": {
-      "inputTokens": 6,
-      "outputTokens": 561,
-      "cacheReadTokens": 7370,
-      "cacheWriteTokens": 1101
+      "inputTokens": 4,
+      "outputTokens": 375,
+      "cacheReadTokens": 4423,
+      "cacheWriteTokens": 741
     },
-    "costUsd": 0.0007084000000000001,
-    "durationMs": 5251,
+    "costUsd": 0.0006252300000000001,
+    "durationMs": 4001,
     "model": "claude-haiku-5-5"
   }
 }

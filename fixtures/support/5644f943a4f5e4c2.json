@@ -1,0 +1,58 @@
+{
+  "key": "5644f943a4f5e4c2",
+  "anchorKey": "a14a99b82dbedf6c",
+  "role": "support",
+  "anchor": "v3::Hi, this is Ana Kovac. My headlamp on order ORD-20694 showed up with the lens cracked right out of the box. Am I able to get my money back?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:18:03.328Z",
+  "result": {
+    "text": "Hi Ana, I'm sorry your headlamp arrived cracked. I've started return RMA-20694 for order ORD-20694 as a damaged-in-transit return, with no restocking fee. Your refund is $59.00, and it will arrive 5-7 business days after the warehouse receives the item.",
+    "toolCalls": [
+      {
+        "id": "toolu_01LEGLg5aYNvisEuQ7K7jeMZ",
+        "name": "mcp__store__check_return_eligibility",
+        "input": {
+          "orderId": "ORD-20694",
+          "reason": "damaged_in_transit"
+        },
+        "output": {
+          "orderId": "ORD-20694",
+          "restockingFeePct": 0,
+          "refundEstimate": 59,
+          "windowDays": 7,
+          "eligible": true,
+          "requiresEscalation": false,
+          "policyId": "damaged-in-transit",
+          "daysSinceDelivery": 1,
+          "explanation": "Damaged in transit and under $200: full refund, no restocking fee."
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_015FvcdxrBnFgdoXp9CMJbMa",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20694",
+          "reason": "damaged_in_transit"
+        },
+        "output": {
+          "returnId": "RMA-20694",
+          "orderId": "ORD-20694",
+          "refund": 59,
+          "restockingFeePct": 0,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 410,
+      "cacheReadTokens": 7707,
+      "cacheWriteTokens": 1187
+    },
+    "costUsd": 0.0006548700000000001,
+    "durationMs": 5010,
+    "model": "claude-haiku-5-5"
+  }
+}

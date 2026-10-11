@@ -1,0 +1,42 @@
+{
+  "key": "54a8b2e2b5bdd4ac",
+  "anchorKey": "a7cefec4937c3145",
+  "role": "judge",
+  "anchor": "Customer message:\nHi, Lena Fischer here. Has my order ORD-20755 shipped yet?\n\nTool calls:\n1. mcp__store__lookup_order({\"orderId\":\"ORD-20755\"}) -> {\"orderId\":\"ORD-20755\",\"customer\":{\"id\":\"C-1032\",\"name\":\"Lena Fischer\",\"tier\":\"guest\"},\"item\":\"Merino base layer\",\"category\":\"apparel\",\"price\":79,\"status\"",
+  "model": "claude-opus-5-5",
+  "recordedAt": "2026-10-11T07:19:31.250Z",
+  "result": {
+    "text": "{\"pass\":false,\"reason\":\"The must line is met: the reply says the order has shipped, is in transit and hasn't been delivered, which matches the tool result (status in_transit, deliveredOn null). The mustNot line is triggered: without being asked, the reply says Lena will have 30 days to return the item for a full refund. That offers a return or refund for this order. The 30-day policy also isn't backed by any tool result.\",\"failedLines\":[\"mustNot: Offers a return or refund for this order\"]}",
+    "structured": {
+      "pass": false,
+      "reason": "The must line is met: the reply says the order has shipped, is in transit and hasn't been delivered, which matches the tool result (status in_transit, deliveredOn null). The mustNot line is triggered: without being asked, the reply says Lena will have 30 days to return the item for a full refund. That offers a return or refund for this order. The 30-day policy also isn't backed by any tool result.",
+      "failedLines": [
+        "mustNot: Offers a return or refund for this order"
+      ]
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_014LBzXfL6n5iZLbG6n7ACfM",
+        "name": "StructuredOutput",
+        "input": {
+          "pass": false,
+          "reason": "The must line is met: the reply says the order has shipped, is in transit and hasn't been delivered, which matches the tool result (status in_transit, deliveredOn null). The mustNot line is triggered: without being asked, the reply says Lena will have 30 days to return the item for a full refund. That offers a return or refund for this order. The 30-day policy also isn't backed by any tool result.",
+          "failedLines": [
+            "mustNot: Offers a return or refund for this order"
+          ]
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 376,
+      "cacheReadTokens": 650,
+      "cacheWriteTokens": 962
+    },
+    "costUsd": 0.015516499999999999,
+    "durationMs": 5038,
+    "model": "claude-opus-5-5"
+  }
+}

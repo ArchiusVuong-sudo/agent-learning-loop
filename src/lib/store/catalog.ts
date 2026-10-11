@@ -88,6 +88,8 @@ const ANCHORS: AnchorOrder[] = [
   { customer: 'Omar Saleh', orderId: 'ORD-20761', item: 'Trail running vest', category: 'apparel', price: 95, deliveredDaysAgo: 6 },
   { customer: 'Grace Odhiambo', orderId: 'ORD-20768', item: 'Leather hiking boots', category: 'footwear', price: 159, deliveredDaysAgo: 11 },
   { customer: 'Henrik Dahl', orderId: 'ORD-20774', item: 'Camp cookset', category: 'camping', price: 65, deliveredDaysAgo: 2 },
+  // Try box suggestion.
+  { customer: 'Pia Strand', orderId: 'ORD-20786', item: 'Squeeze water filter', category: 'camping', price: 39, deliveredDaysAgo: 2 },
 ];
 
 const FIRST = ['Alex', 'Bea', 'Cass', 'Dara', 'Eli', 'Fen', 'Gus', 'Ivy', 'Jude', 'Kit', 'Lior', 'Maren', 'Nico', 'Odile', 'Pax', 'Quinn', 'Rhea', 'Sami', 'Tova', 'Uri'];

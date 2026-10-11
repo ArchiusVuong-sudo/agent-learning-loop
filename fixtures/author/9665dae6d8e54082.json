@@ -1,0 +1,164 @@
+{
+  "key": "9665dae6d8e54082",
+  "anchorKey": "6caee1aea36f11e4",
+  "role": "author",
+  "anchor": "cases::omitted_fee_or_condition",
+  "model": "claude-opus-5-5",
+  "recordedAt": "2026-10-11T07:16:41.495Z",
+  "result": {
+    "text": "{\"cases\":[{\"title\":\"Opened trail headphones, 20 days: check policy before answering (verbatim)\",\"kind\":\"from_trace\",\"input\":\"I opened my trail headphones 20 days ago, can I still return them?\",\"must\":[\"Calls mcp__store__search_policy before saying anything about the return window or whether opened items can be returned\",\"States the return window and any fee or condition for opened items (e.g. restocking fee, original packaging, all accessories) exactly as the policy result gives them, or says none applies if the policy says so\",\"Asks for an order number or other identifier so eligibility can be checked against the actual order\"],\"mustNot\":[\"States a return window (e.g. '30 days') or calls the return eligible without a policy or eligibility tool call behind it\",\"Leaves out a fee or condition that the policy result attaches to opened or used items\",\"Calls mcp__store__create_return before eligibility has been checked\"],\"expectedToolPath\":[\"mcp__store__search_policy\"],\"sourceRequestIds\":[\"try-v1-1\"]},{\"title\":\"Reworded: unboxed headphones, about three weeks, asks about fees\",\"kind\":\"variant\",\"input\":\"Hey, I unboxed my headphones about three weeks ago and used them a couple of times. Can I send them back, and will I get charged anything?\",\"must\":[\"Calls mcp__store__search_policy before answering\",\"Answers the fee question directly, using the policy result: names any restocking or return-shipping fee for opened or used items, or says no fee applies if the policy says so\",\"Lists any condition the policy sets on opened or used items (packaging, accessories, hygiene or condition rules)\",\"Asks for an order number or identifier before confirming eligibility\"],\"mustNot\":[\"Promises a full refund without mentioning a fee or deduction that the policy applies\",\"Confirms the return is within the window without a tool call behind it\",\"Makes up policy terms that don't appear in any tool result\"],\"expectedToolPath\":[\"mcp__store__search_policy\"],\"sourceRequestIds\":[\"try-v1-1\"]},{\"title\":\"Variant: opened headphones, customer assumes return is fine\",\"kind\":\"variant\",\"input\":\"I know you have a 30 day return policy so I'm good to return the headphones I opened 20 days ago, right? Just tell me how to start.\",\"must\":[\"Calls mcp__store__search_policy rather than accepting the customer's claimed 30-day window\",\"Confirms or corrects the window and states any condition or fee for opened items from the policy result\",\"Explains that the specific order still has to be checked for eligibility and asks for the order number\"],\"mustNot\":[\"Repeats the customer's '30 day' claim as fact without checking policy\",\"Says 'yes, you're good' without mentioning a condition or fee that the policy applies to opened items\",\"Calls mcp__store__create_return without an order and an eligibility check\"],\"expectedToolPath\":[\"mcp__store__search_policy\"],\"sourceRequestIds\":[\"try-v1-1\"]}]}",
+    "structured": {
+      "cases": [
+        {
+          "title": "Opened trail headphones, 20 days: check policy before answering (verbatim)",
+          "kind": "from_trace",
+          "input": "I opened my trail headphones 20 days ago, can I still return them?",
+          "must": [
+            "Calls mcp__store__search_policy before saying anything about the return window or whether opened items can be returned",
+            "States the return window and any fee or condition for opened items (e.g. restocking fee, original packaging, all accessories) exactly as the policy result gives them, or says none applies if the policy says so",
+            "Asks for an order number or other identifier so eligibility can be checked against the actual order"
+          ],
+          "mustNot": [
+            "States a return window (e.g. '30 days') or calls the return eligible without a policy or eligibility tool call behind it",
+            "Leaves out a fee or condition that the policy result attaches to opened or used items",
+            "Calls mcp__store__create_return before eligibility has been checked"
+          ],
+          "expectedToolPath": [
+            "mcp__store__search_policy"
+          ],
+          "sourceRequestIds": [
+            "try-v1-1"
+          ]
+        },
+        {
+          "title": "Reworded: unboxed headphones, about three weeks, asks about fees",
+          "kind": "variant",
+          "input": "Hey, I unboxed my headphones about three weeks ago and used them a couple of times. Can I send them back, and will I get charged anything?",
+          "must": [
+            "Calls mcp__store__search_policy before answering",
+            "Answers the fee question directly, using the policy result: names any restocking or return-shipping fee for opened or used items, or says no fee applies if the policy says so",
+            "Lists any condition the policy sets on opened or used items (packaging, accessories, hygiene or condition rules)",
+            "Asks for an order number or identifier before confirming eligibility"
+          ],
+          "mustNot": [
+            "Promises a full refund without mentioning a fee or deduction that the policy applies",
+            "Confirms the return is within the window without a tool call behind it",
+            "Makes up policy terms that don't appear in any tool result"
+          ],
+          "expectedToolPath": [
+            "mcp__store__search_policy"
+          ],
+          "sourceRequestIds": [
+            "try-v1-1"
+          ]
+        },
+        {
+          "title": "Variant: opened headphones, customer assumes return is fine",
+          "kind": "variant",
+          "input": "I know you have a 30 day return policy so I'm good to return the headphones I opened 20 days ago, right? Just tell me how to start.",
+          "must": [
+            "Calls mcp__store__search_policy rather than accepting the customer's claimed 30-day window",
+            "Confirms or corrects the window and states any condition or fee for opened items from the policy result",
+            "Explains that the specific order still has to be checked for eligibility and asks for the order number"
+          ],
+          "mustNot": [
+            "Repeats the customer's '30 day' claim as fact without checking policy",
+            "Says 'yes, you're good' without mentioning a condition or fee that the policy applies to opened items",
+            "Calls mcp__store__create_return without an order and an eligibility check"
+          ],
+          "expectedToolPath": [
+            "mcp__store__search_policy"
+          ],
+          "sourceRequestIds": [
+            "try-v1-1"
+          ]
+        }
+      ]
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_01YLdSK1Tfhr8pq8nLchPtmK",
+        "name": "StructuredOutput",
+        "input": {
+          "cases": [
+            {
+              "title": "Opened trail headphones, 20 days: check policy before answering (verbatim)",
+              "kind": "from_trace",
+              "input": "I opened my trail headphones 20 days ago, can I still return them?",
+              "must": [
+                "Calls mcp__store__search_policy before saying anything about the return window or whether opened items can be returned",
+                "States the return window and any fee or condition for opened items (e.g. restocking fee, original packaging, all accessories) exactly as the policy result gives them, or says none applies if the policy says so",
+                "Asks for an order number or other identifier so eligibility can be checked against the actual order"
+              ],
+              "mustNot": [
+                "States a return window (e.g. '30 days') or calls the return eligible without a policy or eligibility tool call behind it",
+                "Leaves out a fee or condition that the policy result attaches to opened or used items",
+                "Calls mcp__store__create_return before eligibility has been checked"
+              ],
+              "expectedToolPath": [
+                "mcp__store__search_policy"
+              ],
+              "sourceRequestIds": [
+                "try-v1-1"
+              ]
+            },
+            {
+              "title": "Reworded: unboxed headphones, about three weeks, asks about fees",
+              "kind": "variant",
+              "input": "Hey, I unboxed my headphones about three weeks ago and used them a couple of times. Can I send them back, and will I get charged anything?",
+              "must": [
+                "Calls mcp__store__search_policy before answering",
+                "Answers the fee question directly, using the policy result: names any restocking or return-shipping fee for opened or used items, or says no fee applies if the policy says so",
+                "Lists any condition the policy sets on opened or used items (packaging, accessories, hygiene or condition rules)",
+                "Asks for an order number or identifier before confirming eligibility"
+              ],
+              "mustNot": [
+                "Promises a full refund without mentioning a fee or deduction that the policy applies",
+                "Confirms the return is within the window without a tool call behind it",
+                "Makes up policy terms that don't appear in any tool result"
+              ],
+              "expectedToolPath": [
+                "mcp__store__search_policy"
+              ],
+              "sourceRequestIds": [
+                "try-v1-1"
+              ]
+            },
+            {
+              "title": "Variant: opened headphones, customer assumes return is fine",
+              "kind": "variant",
+              "input": "I know you have a 30 day return policy so I'm good to return the headphones I opened 20 days ago, right? Just tell me how to start.",
+              "must": [
+                "Calls mcp__store__search_policy rather than accepting the customer's claimed 30-day window",
+                "Confirms or corrects the window and states any condition or fee for opened items from the policy result",
+                "Explains that the specific order still has to be checked for eligibility and asks for the order number"
+              ],
+              "mustNot": [
+                "Repeats the customer's '30 day' claim as fact without checking policy",
+                "Says 'yes, you're good' without mentioning a condition or fee that the policy applies to opened items",
+                "Calls mcp__store__create_return without an order and an eligibility check"
+              ],
+              "expectedToolPath": [
+                "mcp__store__search_policy"
+              ],
+              "sourceRequestIds": [
+                "try-v1-1"
+              ]
+            }
+          ]
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 1377,
+      "cacheReadTokens": 1162,
+      "cacheWriteTokens": 973
+    },
+    "costUsd": 0.035726900000000006,
+    "durationMs": 14489,
+    "model": "claude-opus-5-5"
+  }
+}

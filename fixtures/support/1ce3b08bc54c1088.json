@@ -1,0 +1,90 @@
+{
+  "key": "1ce3b08bc54c1088",
+  "anchorKey": "192bef821d8f2eaf",
+  "role": "support",
+  "anchor": "v4::Mira Joshi. The main zipper on my day pack from ORD-20749 stopped closing after two hikes. What can you do?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:20:23.796Z",
+  "result": {
+    "text": "I'm sorry the zipper failed after only two hikes. Under our warranty, gear is covered for one year against manufacturing defects, including a failed zipper. I've passed your claim to a human agent (ticket ESC-4110), who should respond within 1 business day. Please keep the pack and take a few photos of the zipper in case they're needed.",
+    "toolCalls": [
+      {
+        "id": "toolu_018jvy6cTLAuHHoZsh4JjCPf",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20749"
+        },
+        "output": {
+          "orderId": "ORD-20749",
+          "customer": {
+            "id": "C-1031",
+            "name": "Mira Joshi",
+            "tier": "guest"
+          },
+          "item": "Hiking day pack 22L",
+          "category": "camping",
+          "price": 85,
+          "status": "delivered",
+          "orderedOn": "2026-09-13",
+          "deliveredOn": "2026-09-17",
+          "daysSinceDelivery": 14,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01MZygRqtJJEroHLCETdAvBU",
+        "name": "mcp__store__search_policy",
+        "input": {
+          "query": "defective item return warranty zipper"
+        },
+        "output": {
+          "results": [
+            {
+              "id": "warranty",
+              "title": "Warranty",
+              "body": "All gear has a 1-year warranty against manufacturing defects (for example a failed zipper, a delaminating sole or a device that will not power on). Warranty claims are reviewed by a human agent: escalate with category \"warranty\" and ask the customer to keep the item and any photos."
+            },
+            {
+              "id": "returns-general",
+              "title": "Returns",
+              "body": "Most items can be returned within 30 days of delivery for a full refund. Opened electronics have a shorter window (see \"Opened electronics\"). Final-sale items cannot be returned. Always confirm eligibility for the specific order before starting a return."
+            },
+            {
+              "id": "final-sale",
+              "title": "Final sale",
+              "body": "Items marked final sale (clearance) cannot be returned or exchanged. They are still covered by the warranty against manufacturing defects."
+            }
+          ]
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01PSAzxuZyrTYduLS3s9kjsb",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "warranty",
+          "orderId": "ORD-20749",
+          "summary": "Mira Joshi (C-1031) reports the main zipper on her 22L hiking day pack (ORD-20749, delivered 2026-09-17, $85) stopped closing after two hikes. This is a possible manufacturing defect under the 1-year warranty. Customer should keep the pack and any photos of the zipper."
+        },
+        "output": {
+          "ticketId": "ESC-4110",
+          "category": "warranty",
+          "responseTime": "1 business day"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 6,
+      "outputTokens": 779,
+      "cacheReadTokens": 8208,
+      "cacheWriteTokens": 1913
+    },
+    "costUsd": 0.00098688,
+    "durationMs": 6522,
+    "model": "claude-haiku-5-5"
+  }
+}

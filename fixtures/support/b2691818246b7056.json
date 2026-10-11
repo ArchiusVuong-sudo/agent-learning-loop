@@ -1,0 +1,42 @@
+{
+  "key": "b2691818246b7056",
+  "anchorKey": "c0ea0da2b52edfaf",
+  "role": "support",
+  "anchor": "v2::Yara Lund. I opened the trail headphones from ORD-20705 five days ago and they hurt my ears. I want to return them.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:17:13.201Z",
+  "result": {
+    "text": "Thanks, Yara. ORD-20705 is eligible for return, since it was delivered 5 days ago and the 14-day window applies to opened electronics. A 15% restocking fee applies, which brings the estimated refund to $152.15.\n\nWould you like me to start the return now? If the headphones are defective rather than just uncomfortable, let me know, because that may change the reason on the return.",
+    "toolCalls": [
+      {
+        "id": "toolu_01HwT8hRpy5mm7nRMKPK3XE8",
+        "name": "mcp__store__check_return_eligibility",
+        "input": {
+          "orderId": "ORD-20705",
+          "reason": "changed_mind"
+        },
+        "output": {
+          "orderId": "ORD-20705",
+          "eligible": true,
+          "requiresEscalation": false,
+          "policyId": "opened-electronics",
+          "daysSinceDelivery": 5,
+          "windowDays": 14,
+          "restockingFeePct": 15,
+          "refundEstimate": 152.15,
+          "explanation": "Opened electronics can be returned within 14 days with a 15% restocking fee."
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 523,
+      "cacheReadTokens": 4533,
+      "cacheWriteTokens": 985
+    },
+    "costUsd": 0.0006364300000000001,
+    "durationMs": 4829,
+    "model": "claude-haiku-5-5"
+  }
+}

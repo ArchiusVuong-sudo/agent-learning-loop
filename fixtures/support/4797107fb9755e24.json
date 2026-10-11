@@ -4,46 +4,18 @@
   "role": "support",
   "anchor": "v1::I opened my trail headphones 20 days ago, can I still return them?",
   "model": "claude-haiku-5-5",
-  "recordedAt": "2026-10-11T03:30:37.463Z",
+  "recordedAt": "2026-10-11T07:15:21.823Z",
   "result": {
-    "text": "I'm sorry, but opened headphones can only be returned within 14 days of delivery, and 20 days is past that window. Your headphones are still covered by the warranty for manufacturing defects. If they're defective or damaged, send me your order number (ORD-#####) and I can check your options. Otherwise, I can't start a return for this one.",
-    "toolCalls": [
-      {
-        "id": "toolu_01DZn9x6D6tUXKUpjagBoeTu",
-        "name": "mcp__store__search_policy",
-        "input": {
-          "query": "opened electronics return"
-        },
-        "output": {
-          "results": [
-            {
-              "id": "opened-electronics",
-              "title": "Opened electronics",
-              "body": "Opened electronics (headphones, GPS units, headlamps, action cameras, watches) can be returned within 14 days of delivery. A 15% restocking fee is deducted from the refund. After 14 days, opened electronics are covered by warranty only."
-            },
-            {
-              "id": "returns-general",
-              "title": "Returns",
-              "body": "Most items can be returned within 30 days of delivery for a full refund. Opened electronics have a shorter window (see \"Opened electronics\"). Final-sale items cannot be returned. Always confirm eligibility for the specific order before starting a return."
-            },
-            {
-              "id": "final-sale",
-              "title": "Final sale",
-              "body": "Items marked final sale (clearance) cannot be returned or exchanged. They are still covered by the warranty against manufacturing defects."
-            }
-          ]
-        },
-        "isError": false
-      }
-    ],
+    "text": "Based on our 30-day return window, 20 days after delivery is within it. To start the return, I need your order number, which looks like ORD-12345. If you don't have it, your full name or customer ID (C-1234) will work for finding your order.",
+    "toolCalls": [],
     "usage": {
-      "inputTokens": 4,
-      "outputTokens": 623,
-      "cacheReadTokens": 4391,
-      "cacheWriteTokens": 1062
+      "inputTokens": 2,
+      "outputTokens": 514,
+      "cacheReadTokens": 2009,
+      "cacheWriteTokens": 369
     },
-    "costUsd": 0.0006948100000000001,
-    "durationMs": 5259,
+    "costUsd": 0.00047819000000000003,
+    "durationMs": 4466,
     "model": "claude-haiku-5-5"
   }
 }

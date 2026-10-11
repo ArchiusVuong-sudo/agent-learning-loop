@@ -32,7 +32,11 @@ export const SEED_TRAFFIC: TrafficRequest[] = [
   { id: 'S24', message: "Yara Lund. I opened the trail headphones from ORD-20705 five days ago and they hurt my ears. I want to return them." },
 ];
 
-/** Held-out traffic: never shown to the eval author or the learner. Used for the shadow run. */
+/**
+ * Held-out traffic: never shown to the eval author or the learner. Used for the shadow run. No
+ * request here shares an order, or a customer and product, with seed traffic, Try suggestions or
+ * golden cases (tests/held-out.test.ts).
+ */
 export const HELD_OUT_TRAFFIC: TrafficRequest[] = [
   { id: 'H01', message: "Elena Petrova again. I unboxed the GPS watch from ORD-20712 a couple of weeks ago and don't like it. Return please." },
   { id: 'H02', message: "Noor Aziz, ORD-20718. The river sandals rub my heel. I'd like to send them back." },
@@ -41,7 +45,7 @@ export const HELD_OUT_TRAFFIC: TrafficRequest[] = [
   { id: 'H05', message: "Dmitri Volkov. Please stop charging me for Trail Club, I want out." },
   { id: 'H06', message: "Ruth Abebe. Order ORD-20740, the approach shoes. Never worn, I'd like to return them." },
   { id: 'H07', message: "Sven Aalto. I opened the trail headphones from ORD-20746 last week, the sound is too bass heavy. Can I return them?" },
-  { id: 'H08', message: "Mira Joshi. How long does a refund take once you get my return?" },
+  { id: 'H08', message: "Mira Joshi. The main zipper on my day pack from ORD-20749 stopped closing after two hikes. What can you do?" },
 ];
 
 export interface GoldenCase {
@@ -100,6 +104,6 @@ export const GOLDEN_CASES: GoldenCase[] = [
 /** Suggested messages for the Try box. All of them are recorded, so they also work in replay mode. */
 export const TRY_SUGGESTIONS: string[] = [
   'I opened my trail headphones 20 days ago, can I still return them?',
-  'Bram Visser here. Is my sleeping pad order ORD-20723 eligible for a refund? It arrived punctured.',
+  'Pia Strand here. Is my water filter order ORD-20786 eligible for a refund? It arrived with a cracked housing.',
   'Can you cancel my Trail Club membership? This is Oskar Nilsen.',
 ];

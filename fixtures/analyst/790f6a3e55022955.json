@@ -1,0 +1,46 @@
+{
+  "key": "790f6a3e55022955",
+  "anchorKey": "7e46ba80a0938f55",
+  "role": "analyst",
+  "anchor": "Customer message:\nElena Petrova. I mailed back the hiking boots from ORD-20624 last week. When will I see the refund?\n\nTool calls:\n1. mcp__store__lookup_order({\"orderId\":\"ORD-20624\"}) -> {\"orderId\":\"ORD-20624\",\"customer\":{\"id\":\"C-1014\",\"name\":\"Elena Petrova\",\"tier\":\"guest\"},\"item\":\"Waterproof hiking",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T07:15:51.458Z",
+  "result": {
+    "text": "{\"goal\":\"Find out when refund for returned boots will arrive\",\"outcome\":\"resolved\",\"behaviors\":[\"checked_eligibility\",\"answered_from_policy\"],\"summary\":\"The agent looked up the order and checked return eligibility, then reported the $169 full refund estimate with no restocking fee and said it couldn't see a refund timeline, without promising a date.\"}",
+    "structured": {
+      "goal": "Find out when refund for returned boots will arrive",
+      "outcome": "resolved",
+      "behaviors": [
+        "checked_eligibility",
+        "answered_from_policy"
+      ],
+      "summary": "The agent looked up the order and checked return eligibility, then reported the $169 full refund estimate with no restocking fee and said it couldn't see a refund timeline, without promising a date."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_01UN8LqB3r5YSgN4siw3WQJ9",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Find out when refund for returned boots will arrive",
+          "outcome": "resolved",
+          "behaviors": [
+            "checked_eligibility",
+            "answered_from_policy"
+          ],
+          "summary": "The agent looked up the order and checked return eligibility, then reported the $169 full refund estimate with no restocking fee and said it couldn't see a refund timeline, without promising a date."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 212,
+      "cacheReadTokens": 861,
+      "cacheWriteTokens": 1411
+    },
+    "costUsd": 0.008131699999999999,
+    "durationMs": 3280,
+    "model": "claude-sonnet-5-5"
+  }
+}

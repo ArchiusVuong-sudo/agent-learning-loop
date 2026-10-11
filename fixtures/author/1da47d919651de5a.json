@@ -1,0 +1,212 @@
+{
+  "key": "1da47d919651de5a",
+  "anchorKey": "3afa93cb55c424ea",
+  "role": "author",
+  "anchor": "cases::skipped_policy_check",
+  "model": "claude-opus-5-5",
+  "recordedAt": "2026-10-11T07:16:27.875Z",
+  "result": {
+    "text": "{\"cases\":[{\"title\":\"Opened headphones, no order given: check policy before talking about the window\",\"kind\":\"from_trace\",\"input\":\"I opened my trail headphones 20 days ago, can I still return them?\",\"must\":[\"Calls mcp__store__search_policy before saying anything about return windows or rules for opened items\",\"Bases any statement about the return window or opened-item conditions on what the policy lookup returned\",\"Asks for an order number or the customer's name/ID so eligibility can be checked for the specific order\"],\"mustNot\":[\"States that 20 days is within a 30-day window (or any window) without a policy or eligibility tool result to back it\",\"Promises the return is allowed or gives a refund amount before eligibility has been checked\",\"Calls mcp__store__create_return\"],\"expectedToolPath\":[\"mcp__store__search_policy\"],\"sourceRequestIds\":[\"try-v1-1\"]},{\"title\":\"Opened headphones that hurt: eligibility check before creating the return\",\"kind\":\"from_trace\",\"input\":\"Yara Lund. I opened the trail headphones from ORD-20705 five days ago and they hurt my ears. I want to return them.\",\"must\":[\"Calls mcp__store__check_return_eligibility for ORD-20705 before mcp__store__create_return\",\"Only creates the return if the eligibility result allows it\",\"Tells the customer about the 15% restocking fee for the opened headphones and the resulting refund ($152.15) if the return goes ahead\",\"Gives the refund timing as 5-7 business days after the item reaches the warehouse\"],\"mustNot\":[\"Calls mcp__store__create_return before mcp__store__check_return_eligibility\",\"Promises a full refund with no restocking fee for the opened headphones\"],\"expectedToolPath\":[\"mcp__store__check_return_eligibility\",\"mcp__store__create_return\"],\"sourceRequestIds\":[\"S24\",\"try-v1-1\"]},{\"title\":\"Damaged on arrival (reworded): confirm eligibility before the refund\",\"kind\":\"variant\",\"input\":\"Hi, this is Ana Kovac. My headlamp on order ORD-20694 showed up with the lens cracked right out of the box. Am I able to get my money back?\",\"must\":[\"Calls mcp__store__check_return_eligibility for ORD-20694 before mcp__store__create_return\",\"Only says the order qualifies after the eligibility result confirms it\",\"If the return is created, gives the return ID, a $59 refund with no restocking fee, and timing of 5-7 business days after the item reaches the warehouse\"],\"mustNot\":[\"Calls mcp__store__create_return without calling mcp__store__check_return_eligibility first\",\"Says the order is eligible before any eligibility or policy tool has run\"],\"expectedToolPath\":[\"mcp__store__check_return_eligibility\",\"mcp__store__create_return\"],\"sourceRequestIds\":[\"S22\",\"try-v1-2\"]},{\"title\":\"Tent set up once, too small (reworded): check eligibility before saying yes\",\"kind\":\"variant\",\"input\":\"Lucas Ferreira again about ORD-20688. I pitched the Ultralight 2 tent in the backyard one time and it's just too cramped for us. Is it still returnable, and will I be charged a fee?\",\"must\":[\"Calls mcp__store__check_return_eligibility for ORD-20688 before saying whether the return is allowed or what fee applies\",\"Answers the restocking-fee question using the eligibility or return result, not an assumption\",\"If the return is created, gives the return ID, the refund amount and timing of 5-7 business days after the item reaches the warehouse\"],\"mustNot\":[\"Says 'yes, you can return it' or names a fee before any eligibility or policy tool has run\",\"Calls mcp__store__create_return before mcp__store__check_return_eligibility\"],\"expectedToolPath\":[\"mcp__store__check_return_eligibility\",\"mcp__store__create_return\"],\"sourceRequestIds\":[\"S21\",\"S20\"]}]}",
+    "structured": {
+      "cases": [
+        {
+          "title": "Opened headphones, no order given: check policy before talking about the window",
+          "kind": "from_trace",
+          "input": "I opened my trail headphones 20 days ago, can I still return them?",
+          "must": [
+            "Calls mcp__store__search_policy before saying anything about return windows or rules for opened items",
+            "Bases any statement about the return window or opened-item conditions on what the policy lookup returned",
+            "Asks for an order number or the customer's name/ID so eligibility can be checked for the specific order"
+          ],
+          "mustNot": [
+            "States that 20 days is within a 30-day window (or any window) without a policy or eligibility tool result to back it",
+            "Promises the return is allowed or gives a refund amount before eligibility has been checked",
+            "Calls mcp__store__create_return"
+          ],
+          "expectedToolPath": [
+            "mcp__store__search_policy"
+          ],
+          "sourceRequestIds": [
+            "try-v1-1"
+          ]
+        },
+        {
+          "title": "Opened headphones that hurt: eligibility check before creating the return",
+          "kind": "from_trace",
+          "input": "Yara Lund. I opened the trail headphones from ORD-20705 five days ago and they hurt my ears. I want to return them.",
+          "must": [
+            "Calls mcp__store__check_return_eligibility for ORD-20705 before mcp__store__create_return",
+            "Only creates the return if the eligibility result allows it",
+            "Tells the customer about the 15% restocking fee for the opened headphones and the resulting refund ($152.15) if the return goes ahead",
+            "Gives the refund timing as 5-7 business days after the item reaches the warehouse"
+          ],
+          "mustNot": [
+            "Calls mcp__store__create_return before mcp__store__check_return_eligibility",
+            "Promises a full refund with no restocking fee for the opened headphones"
+          ],
+          "expectedToolPath": [
+            "mcp__store__check_return_eligibility",
+            "mcp__store__create_return"
+          ],
+          "sourceRequestIds": [
+            "S24",
+            "try-v1-1"
+          ]
+        },
+        {
+          "title": "Damaged on arrival (reworded): confirm eligibility before the refund",
+          "kind": "variant",
+          "input": "Hi, this is Ana Kovac. My headlamp on order ORD-20694 showed up with the lens cracked right out of the box. Am I able to get my money back?",
+          "must": [
+            "Calls mcp__store__check_return_eligibility for ORD-20694 before mcp__store__create_return",
+            "Only says the order qualifies after the eligibility result confirms it",
+            "If the return is created, gives the return ID, a $59 refund with no restocking fee, and timing of 5-7 business days after the item reaches the warehouse"
+          ],
+          "mustNot": [
+            "Calls mcp__store__create_return without calling mcp__store__check_return_eligibility first",
+            "Says the order is eligible before any eligibility or policy tool has run"
+          ],
+          "expectedToolPath": [
+            "mcp__store__check_return_eligibility",
+            "mcp__store__create_return"
+          ],
+          "sourceRequestIds": [
+            "S22",
+            "try-v1-2"
+          ]
+        },
+        {
+          "title": "Tent set up once, too small (reworded): check eligibility before saying yes",
+          "kind": "variant",
+          "input": "Lucas Ferreira again about ORD-20688. I pitched the Ultralight 2 tent in the backyard one time and it's just too cramped for us. Is it still returnable, and will I be charged a fee?",
+          "must": [
+            "Calls mcp__store__check_return_eligibility for ORD-20688 before saying whether the return is allowed or what fee applies",
+            "Answers the restocking-fee question using the eligibility or return result, not an assumption",
+            "If the return is created, gives the return ID, the refund amount and timing of 5-7 business days after the item reaches the warehouse"
+          ],
+          "mustNot": [
+            "Says 'yes, you can return it' or names a fee before any eligibility or policy tool has run",
+            "Calls mcp__store__create_return before mcp__store__check_return_eligibility"
+          ],
+          "expectedToolPath": [
+            "mcp__store__check_return_eligibility",
+            "mcp__store__create_return"
+          ],
+          "sourceRequestIds": [
+            "S21",
+            "S20"
+          ]
+        }
+      ]
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_01GnQwYyFVRfun8fAG1QMx9J",
+        "name": "StructuredOutput",
+        "input": {
+          "cases": [
+            {
+              "title": "Opened headphones, no order given: check policy before talking about the window",
+              "kind": "from_trace",
+              "input": "I opened my trail headphones 20 days ago, can I still return them?",
+              "must": [
+                "Calls mcp__store__search_policy before saying anything about return windows or rules for opened items",
+                "Bases any statement about the return window or opened-item conditions on what the policy lookup returned",
+                "Asks for an order number or the customer's name/ID so eligibility can be checked for the specific order"
+              ],
+              "mustNot": [
+                "States that 20 days is within a 30-day window (or any window) without a policy or eligibility tool result to back it",
+                "Promises the return is allowed or gives a refund amount before eligibility has been checked",
+                "Calls mcp__store__create_return"
+              ],
+              "expectedToolPath": [
+                "mcp__store__search_policy"
+              ],
+              "sourceRequestIds": [
+                "try-v1-1"
+              ]
+            },
+            {
+              "title": "Opened headphones that hurt: eligibility check before creating the return",
+              "kind": "from_trace",
+              "input": "Yara Lund. I opened the trail headphones from ORD-20705 five days ago and they hurt my ears. I want to return them.",
+              "must": [
+                "Calls mcp__store__check_return_eligibility for ORD-20705 before mcp__store__create_return",
+                "Only creates the return if the eligibility result allows it",
+                "Tells the customer about the 15% restocking fee for the opened headphones and the resulting refund ($152.15) if the return goes ahead",
+                "Gives the refund timing as 5-7 business days after the item reaches the warehouse"
+              ],
+              "mustNot": [
+                "Calls mcp__store__create_return before mcp__store__check_return_eligibility",
+                "Promises a full refund with no restocking fee for the opened headphones"
+              ],
+              "expectedToolPath": [
+                "mcp__store__check_return_eligibility",
+                "mcp__store__create_return"
+              ],
+              "sourceRequestIds": [
+                "S24",
+                "try-v1-1"
+              ]
+            },
+            {
+              "title": "Damaged on arrival (reworded): confirm eligibility before the refund",
+              "kind": "variant",
+              "input": "Hi, this is Ana Kovac. My headlamp on order ORD-20694 showed up with the lens cracked right out of the box. Am I able to get my money back?",
+              "must": [
+                "Calls mcp__store__check_return_eligibility for ORD-20694 before mcp__store__create_return",
+                "Only says the order qualifies after the eligibility result confirms it",
+                "If the return is created, gives the return ID, a $59 refund with no restocking fee, and timing of 5-7 business days after the item reaches the warehouse"
+              ],
+              "mustNot": [
+                "Calls mcp__store__create_return without calling mcp__store__check_return_eligibility first",
+                "Says the order is eligible before any eligibility or policy tool has run"
+              ],
+              "expectedToolPath": [
+                "mcp__store__check_return_eligibility",
+                "mcp__store__create_return"
+              ],
+              "sourceRequestIds": [
+                "S22",
+                "try-v1-2"
+              ]
+            },
+            {
+              "title": "Tent set up once, too small (reworded): check eligibility before saying yes",
+              "kind": "variant",
+              "input": "Lucas Ferreira again about ORD-20688. I pitched the Ultralight 2 tent in the backyard one time and it's just too cramped for us. Is it still returnable, and will I be charged a fee?",
+              "must": [
+                "Calls mcp__store__check_return_eligibility for ORD-20688 before saying whether the return is allowed or what fee applies",
+                "Answers the restocking-fee question using the eligibility or return result, not an assumption",
+                "If the return is created, gives the return ID, the refund amount and timing of 5-7 business days after the item reaches the warehouse"
+              ],
+              "mustNot": [
+                "Says 'yes, you can return it' or names a fee before any eligibility or policy tool has run",
+                "Calls mcp__store__create_return before mcp__store__check_return_eligibility"
+              ],
+              "expectedToolPath": [
+                "mcp__store__check_return_eligibility",
+                "mcp__store__create_return"
+              ],
+              "sourceRequestIds": [
+                "S21",
+                "S20"
+              ]
+            }
+          ]
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 1818,
+      "cacheReadTokens": 1162,
+      "cacheWriteTokens": 2842
+    },
+    "costUsd": 0.059685699999999994,
+    "durationMs": 17581,
+    "model": "claude-opus-5-5"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "key": "3fee2623dfd4abbb",
+  "anchorKey": "e22cafcd7013133a",
+  "role": "support",
+  "anchor": "v4::Can you cancel my Trail Club membership? This is Oskar Nilsen.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:20:34.521Z",
+  "result": {
+    "text": "Hi Oskar, I can't cancel Trail Club memberships directly, so I've passed your request to our team. Your ticket number is ESC-4112, and you can expect a response within 2 business days. Thanks for your patience.",
+    "toolCalls": [
+      {
+        "id": "toolu_01PF9xMfhnKwrbnAwFGXSMoU",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "membership",
+          "summary": "Customer Oskar Nilsen is requesting cancellation of his Trail Club membership. Membership changes require a human agent."
+        },
+        "output": {
+          "ticketId": "ESC-4112",
+          "category": "membership",
+          "responseTime": "2 business days"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 300,
+      "cacheReadTokens": 4805,
+      "cacheWriteTokens": 928
+    },
+    "costUsd": 0.00051315,
+    "durationMs": 3569,
+    "model": "claude-haiku-5-5"
+  }
+}

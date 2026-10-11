@@ -55,21 +55,23 @@ The app walks one loop in six steps, each a page in the sidebar.
 5. **Gate.** Two Mastra experiments run the dataset version against the live prompt and the candidate, routed by `requestContext`. The verdict needs three rules to hold: every expected tool path scores 1.0 on the candidate, no golden case goes from pass to fail, and the candidate passes more cases than live.
 6. **Rollout.** Held-out requests the author and learner never saw run on both versions with the same online checks. Promote flips the live version; rollback returns to the parent version and keeps the one you left as a candidate.
 
-One live run of the full flow, recorded on 11 Oct 2026 and replayed in the demo:
+One live run of the full flow, recorded on 11 Oct 2026 and served by replay mode:
 
 | Step | Result |
 | --- | --- |
-| Synthetic traffic on v1 | 24 traces, 9 passed every check |
-| Failure groups | Skipped policy check 12, tried a blocked action 3, missed escalation 2 |
+| Synthetic traffic on v1 | 24 traces, 5 passed every check |
+| Failure groups (24 traces plus 3 Try messages) | Skipped policy check 17, tried a blocked action 4, missed escalation 2, left out a fee or condition 1 |
 | Dataset | 5 golden cases, 3 approved cases added as version 2 (1 rejected) |
 | Gate on v2 | Failed: 7/8 vs 5/8 on v1, one tool path below 1.0 |
 | Gate on v3 (first revision) | Failed: 7/8 vs 6/8, a golden exchange case regressed |
-| Gate on v4 (second revision) | Passed: 8/8 vs 4/8 |
-| Shadow run, 8 held-out requests | v4 passed 8/8, live v1 passed 1/8 |
+| Gate on v4 (second revision) | Passed: 8/8 vs 5/8 |
+| Shadow run, 8 held-out requests | v4 passed 8/8, live v1 passed 2/8 |
+
+The video is a separate live run, where v2 failed the gate, v3 passed 8/8 vs 4/8, and the shadow run gave v3 6/8 vs v1 2/8.
 
 **Isolation.** Every model call goes through `query()` of the Claude Agent SDK with no built-in tools, only this app's MCP tools in `allowedTools`, no setting sources, a strict MCP config, no saved session, a fresh temp working folder, bounded turns, the `dontAsk` permission mode and a child environment built from an allowlist. Overloaded, rate-limit and 5xx errors retry with backoff.
 
-**Replay.** The LLM provider has two implementations. Live calls the SDK; replay serves responses recorded from real live runs by `pnpm record`, including the tool calls and their results, so a replayed trace has the same spans as the original. When a person edits a case or a prompt, replay falls back to a looser match on the part they did not change. The app replays when `DEMO_REPLAY=1` is set or when it finds no Claude Code login and no `ANTHROPIC_API_KEY`, and shows a "Replay mode" badge. Latency shown in replay is the time measured on the live run.
+**Replay.** The LLM provider has two implementations. Live calls the SDK; replay serves responses recorded from real live runs by `pnpm record`, including the tool calls and their results, so a replayed trace has the same spans as the original. When a person edits a case or a prompt, replay falls back to a looser match on the part they did not change. In replay mode the Try box answers the three suggested messages; your own message needs live mode. The app replays when `DEMO_REPLAY=1` is set or when it finds no Claude Code login and no `ANTHROPIC_API_KEY`, and shows a "Replay mode" badge. Latency shown in replay is the time measured on the live run.
 
 **Models.** The agent runs on `claude-haiku-5-5`, the judges, eval author and learner on `claude-opus-5-5`, the analyst on `claude-sonnet-5-5`. Each is set by an env var.
 
@@ -118,12 +120,14 @@ The Mastra server routes are mounted at `/api/mastra`, for example `GET /api/mas
 
 ## Tests
 
-`pnpm test` runs 58 tests in replay mode with no network:
+`pnpm test` runs 65 tests in replay mode with no network:
 
 - Return eligibility rules: windows, opened electronics, final sale, shipping damage thresholds, warranty, exchanges, plus policy search and the synthetic catalog.
 - Each store tool: input validation, results, tool errors, idempotent returns, escalation tickets and the guardrail that refuses blocked returns.
 - The LLM layer: isolation options, the env allowlist, retry and backoff, the concurrency limit, fixture keys, anchor fallback, repeated recordings served in order, and a recorded fixture for every agent role.
 - Loop logic: each span rule, failure grouping, prompt edits that must match exactly once, the case schema, the gate verdict rules.
+- Held-out traffic: no held-out request shares an order id, or a customer and product, with seed traffic, Try suggestions or golden cases.
+- API errors: a replay miss answers 422 even when the error comes from another module copy, and a failed run saves a failed check.
 - Prompt versions: candidates, promote, rollback, superseded candidates, one live version.
 - One end-to-end test of the main flow in replay: traffic, Try box, findings, cases approved and rejected, dataset version 2, suggestion, gate with revisions, shadow run, promote and rollback, audit rows.
 

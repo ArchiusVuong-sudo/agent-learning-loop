@@ -1,0 +1,73 @@
+{
+  "key": "a61a596ea1672ca8",
+  "anchorKey": "b97e5b24082110e4",
+  "role": "support",
+  "anchor": "v1::Mira Joshi. The main zipper on my day pack from ORD-20749 stopped closing after two hikes. What can you do?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:20:23.878Z",
+  "result": {
+    "text": "I'm sorry the zipper failed after just two hikes, Mira. Because it's a defect, I can't start a standard return myself, so I've passed your case to our warranty team as ticket ESC-4111. Someone will reply within one business day about a repair or refund for your order ORD-20749. Please keep the pack and your order details handy.",
+    "toolCalls": [
+      {
+        "id": "toolu_019UuVLddJbnLjorcG1qUkUK",
+        "name": "mcp__store__lookup_order",
+        "input": {
+          "orderId": "ORD-20749"
+        },
+        "output": {
+          "orderId": "ORD-20749",
+          "customer": {
+            "id": "C-1031",
+            "name": "Mira Joshi",
+            "tier": "guest"
+          },
+          "item": "Hiking day pack 22L",
+          "category": "camping",
+          "price": 85,
+          "status": "delivered",
+          "orderedOn": "2026-09-13",
+          "deliveredOn": "2026-09-17",
+          "daysSinceDelivery": 14,
+          "opened": false,
+          "finalSale": false,
+          "today": "2026-10-01"
+        },
+        "isError": false
+      },
+      {
+        "id": "toolu_01B18g4X6WxqQEMfUYB3E9SQ",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20749",
+          "reason": "defective"
+        },
+        "output": "Return refused: Defects are handled as warranty claims by a human agent. Escalate with category \"warranty\". Use escalate_to_human instead.",
+        "isError": true
+      },
+      {
+        "id": "toolu_01WFrZRsmMDBYVVBUd1iuJk6",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "warranty",
+          "orderId": "ORD-20749",
+          "summary": "Customer Mira Joshi (C-1031) reports the main zipper on her 22L day pack (ORD-20749, $85, delivered 2026-09-17, not opened as final sale) stopped closing after two hikes. Return was refused as a defect, so she needs a warranty review and next steps for repair or refund."
+        },
+        "output": {
+          "ticketId": "ESC-4111",
+          "category": "warranty",
+          "responseTime": "1 business day"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 8,
+      "outputTokens": 767,
+      "cacheReadTokens": 10011,
+      "cacheWriteTokens": 1632
+    },
+    "costUsd": 0.00094291,
+    "durationMs": 7106,
+    "model": "claude-haiku-5-5"
+  }
+}

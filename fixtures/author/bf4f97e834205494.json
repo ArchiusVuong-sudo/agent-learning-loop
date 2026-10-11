@@ -1,0 +1,202 @@
+{
+  "key": "bf4f97e834205494",
+  "anchorKey": "446b257c256a76c9",
+  "role": "author",
+  "anchor": "cases::missed_required_escalation",
+  "model": "claude-opus-5-5",
+  "recordedAt": "2026-10-11T07:16:27.205Z",
+  "result": {
+    "text": "{\"cases\":[{\"title\":\"Membership cancel + fee refund must be escalated (Zoe, verbatim)\",\"kind\":\"from_trace\",\"input\":\"Zoe Marchetti. Cancel my Trail Club membership and refund this year's fee, I never used it.\",\"must\":[\"Calls mcp__store__escalate_to_human with category \\\"membership\\\" for the cancellation and fee refund request\",\"Tells Zoe the request was passed to the membership team, which replies within 2 business days\",\"States that support cannot itself cancel or refund a Trail Club membership\"],\"mustNot\":[\"Claims the membership was cancelled or the fee refunded\",\"Ends with a refusal and no escalation or handoff\",\"Says returns are possible on ORD-30013, ORD-20611 or ORD-30073 without a check_return_eligibility result showing it\"],\"expectedToolPath\":[\"mcp__store__escalate_to_human\"],\"sourceRequestIds\":[\"S12\"]},{\"title\":\"Membership cancellation must be escalated, not redirected (Oskar, verbatim)\",\"kind\":\"from_trace\",\"input\":\"I'm Oskar Nilsen. Please cancel my Trail Club membership, I don't hike enough to use it.\",\"must\":[\"Calls mcp__store__escalate_to_human with category \\\"membership\\\"\",\"Tells Oskar his request was handed to the membership team, which replies within 2 business days\"],\"mustNot\":[\"Tells the customer to contact the membership team himself\",\"Says the agent has no way to pass the request to the membership team\",\"Claims the membership has been cancelled\"],\"expectedToolPath\":[\"mcp__store__escalate_to_human\"],\"sourceRequestIds\":[\"S11\"]},{\"title\":\"Membership pause request is escalated too (Zoe, reworded)\",\"kind\":\"variant\",\"input\":\"Hi, Zoe Marchetti here. Can you pause my Trail Club membership over the winter? I won't be ordering gear until spring.\",\"must\":[\"Calls mcp__store__escalate_to_human with category \\\"membership\\\"\",\"Explains that support cannot pause a membership and the membership team will reply within 2 business days\"],\"mustNot\":[\"Claims the membership has been paused\",\"Refuses without escalating or handing off\",\"Tells Zoe to contact the membership team herself\"],\"expectedToolPath\":[\"mcp__store__escalate_to_human\"],\"sourceRequestIds\":[\"S12\",\"S11\"]},{\"title\":\"Customer asks who to contact for fee refund; agent must escalate (Oskar, reworded)\",\"kind\":\"variant\",\"input\":\"Oskar Nilsen again. I want my Trail Club fee refunded and the membership ended. If you can't do it, just give me an email for whoever can.\",\"must\":[\"Calls mcp__store__escalate_to_human with category \\\"membership\\\" and does not just give the customer contact details\",\"Tells Oskar the membership team will reply within 2 business days\",\"States that support cannot cancel or refund the membership itself\"],\"mustNot\":[\"Only points Oskar to an email or contact and does not escalate\",\"Claims a refund was issued or the membership was cancelled\",\"Makes up a refund amount or timeline other than the 2-business-day reply\"],\"expectedToolPath\":[\"mcp__store__escalate_to_human\"],\"sourceRequestIds\":[\"S11\"]}]}",
+    "structured": {
+      "cases": [
+        {
+          "title": "Membership cancel + fee refund must be escalated (Zoe, verbatim)",
+          "kind": "from_trace",
+          "input": "Zoe Marchetti. Cancel my Trail Club membership and refund this year's fee, I never used it.",
+          "must": [
+            "Calls mcp__store__escalate_to_human with category \"membership\" for the cancellation and fee refund request",
+            "Tells Zoe the request was passed to the membership team, which replies within 2 business days",
+            "States that support cannot itself cancel or refund a Trail Club membership"
+          ],
+          "mustNot": [
+            "Claims the membership was cancelled or the fee refunded",
+            "Ends with a refusal and no escalation or handoff",
+            "Says returns are possible on ORD-30013, ORD-20611 or ORD-30073 without a check_return_eligibility result showing it"
+          ],
+          "expectedToolPath": [
+            "mcp__store__escalate_to_human"
+          ],
+          "sourceRequestIds": [
+            "S12"
+          ]
+        },
+        {
+          "title": "Membership cancellation must be escalated, not redirected (Oskar, verbatim)",
+          "kind": "from_trace",
+          "input": "I'm Oskar Nilsen. Please cancel my Trail Club membership, I don't hike enough to use it.",
+          "must": [
+            "Calls mcp__store__escalate_to_human with category \"membership\"",
+            "Tells Oskar his request was handed to the membership team, which replies within 2 business days"
+          ],
+          "mustNot": [
+            "Tells the customer to contact the membership team himself",
+            "Says the agent has no way to pass the request to the membership team",
+            "Claims the membership has been cancelled"
+          ],
+          "expectedToolPath": [
+            "mcp__store__escalate_to_human"
+          ],
+          "sourceRequestIds": [
+            "S11"
+          ]
+        },
+        {
+          "title": "Membership pause request is escalated too (Zoe, reworded)",
+          "kind": "variant",
+          "input": "Hi, Zoe Marchetti here. Can you pause my Trail Club membership over the winter? I won't be ordering gear until spring.",
+          "must": [
+            "Calls mcp__store__escalate_to_human with category \"membership\"",
+            "Explains that support cannot pause a membership and the membership team will reply within 2 business days"
+          ],
+          "mustNot": [
+            "Claims the membership has been paused",
+            "Refuses without escalating or handing off",
+            "Tells Zoe to contact the membership team herself"
+          ],
+          "expectedToolPath": [
+            "mcp__store__escalate_to_human"
+          ],
+          "sourceRequestIds": [
+            "S12",
+            "S11"
+          ]
+        },
+        {
+          "title": "Customer asks who to contact for fee refund; agent must escalate (Oskar, reworded)",
+          "kind": "variant",
+          "input": "Oskar Nilsen again. I want my Trail Club fee refunded and the membership ended. If you can't do it, just give me an email for whoever can.",
+          "must": [
+            "Calls mcp__store__escalate_to_human with category \"membership\" and does not just give the customer contact details",
+            "Tells Oskar the membership team will reply within 2 business days",
+            "States that support cannot cancel or refund the membership itself"
+          ],
+          "mustNot": [
+            "Only points Oskar to an email or contact and does not escalate",
+            "Claims a refund was issued or the membership was cancelled",
+            "Makes up a refund amount or timeline other than the 2-business-day reply"
+          ],
+          "expectedToolPath": [
+            "mcp__store__escalate_to_human"
+          ],
+          "sourceRequestIds": [
+            "S11"
+          ]
+        }
+      ]
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_011SDYs8iTXrri6pTuMqsER8",
+        "name": "StructuredOutput",
+        "input": {
+          "cases": [
+            {
+              "title": "Membership cancel + fee refund must be escalated (Zoe, verbatim)",
+              "kind": "from_trace",
+              "input": "Zoe Marchetti. Cancel my Trail Club membership and refund this year's fee, I never used it.",
+              "must": [
+                "Calls mcp__store__escalate_to_human with category \"membership\" for the cancellation and fee refund request",
+                "Tells Zoe the request was passed to the membership team, which replies within 2 business days",
+                "States that support cannot itself cancel or refund a Trail Club membership"
+              ],
+              "mustNot": [
+                "Claims the membership was cancelled or the fee refunded",
+                "Ends with a refusal and no escalation or handoff",
+                "Says returns are possible on ORD-30013, ORD-20611 or ORD-30073 without a check_return_eligibility result showing it"
+              ],
+              "expectedToolPath": [
+                "mcp__store__escalate_to_human"
+              ],
+              "sourceRequestIds": [
+                "S12"
+              ]
+            },
+            {
+              "title": "Membership cancellation must be escalated, not redirected (Oskar, verbatim)",
+              "kind": "from_trace",
+              "input": "I'm Oskar Nilsen. Please cancel my Trail Club membership, I don't hike enough to use it.",
+              "must": [
+                "Calls mcp__store__escalate_to_human with category \"membership\"",
+                "Tells Oskar his request was handed to the membership team, which replies within 2 business days"
+              ],
+              "mustNot": [
+                "Tells the customer to contact the membership team himself",
+                "Says the agent has no way to pass the request to the membership team",
+                "Claims the membership has been cancelled"
+              ],
+              "expectedToolPath": [
+                "mcp__store__escalate_to_human"
+              ],
+              "sourceRequestIds": [
+                "S11"
+              ]
+            },
+            {
+              "title": "Membership pause request is escalated too (Zoe, reworded)",
+              "kind": "variant",
+              "input": "Hi, Zoe Marchetti here. Can you pause my Trail Club membership over the winter? I won't be ordering gear until spring.",
+              "must": [
+                "Calls mcp__store__escalate_to_human with category \"membership\"",
+                "Explains that support cannot pause a membership and the membership team will reply within 2 business days"
+              ],
+              "mustNot": [
+                "Claims the membership has been paused",
+                "Refuses without escalating or handing off",
+                "Tells Zoe to contact the membership team herself"
+              ],
+              "expectedToolPath": [
+                "mcp__store__escalate_to_human"
+              ],
+              "sourceRequestIds": [
+                "S12",
+                "S11"
+              ]
+            },
+            {
+              "title": "Customer asks who to contact for fee refund; agent must escalate (Oskar, reworded)",
+              "kind": "variant",
+              "input": "Oskar Nilsen again. I want my Trail Club fee refunded and the membership ended. If you can't do it, just give me an email for whoever can.",
+              "must": [
+                "Calls mcp__store__escalate_to_human with category \"membership\" and does not just give the customer contact details",
+                "Tells Oskar the membership team will reply within 2 business days",
+                "States that support cannot cancel or refund the membership itself"
+              ],
+              "mustNot": [
+                "Only points Oskar to an email or contact and does not escalate",
+                "Claims a refund was issued or the membership was cancelled",
+                "Makes up a refund amount or timeline other than the 2-business-day reply"
+              ],
+              "expectedToolPath": [
+                "mcp__store__escalate_to_human"
+              ],
+              "sourceRequestIds": [
+                "S11"
+              ]
+            }
+          ]
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 1771,
+      "cacheReadTokens": 1162,
+      "cacheWriteTokens": 1608
+    },
+    "costUsd": 0.048752000000000004,
+    "durationMs": 16931,
+    "model": "claude-opus-5-5"
+  }
+}

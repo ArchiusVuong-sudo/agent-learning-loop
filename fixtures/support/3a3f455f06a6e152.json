@@ -4,12 +4,12 @@
   "role": "support",
   "anchor": "v1::Henrik Dahl. The camp cookset from ORD-20774 arrived dented. Can I get a refund?",
   "model": "claude-haiku-5-5",
-  "recordedAt": "2026-10-11T03:32:30.520Z",
+  "recordedAt": "2026-10-11T07:17:28.245Z",
   "result": {
-    "text": "Hi Henrik, I'm sorry the camp cookset arrived dented. I've started return RMA-20774 for ORD-20774 as damaged in transit, and you'll get a full refund of $65 with no restocking fee. The refund should post 5–7 business days after the warehouse receives the item.",
+    "text": "I'm sorry the camp cookset arrived dented, Henrik. I've started return RMA-20774 for order ORD-20774 under damage in transit, and you'll get a full refund of $65 with no restocking fee. The refund will be issued 5–7 business days after the warehouse receives the item.",
     "toolCalls": [
       {
-        "id": "toolu_01Na7x7LwELVSUkXtoJGY2Vz",
+        "id": "toolu_01QSrgbTpxbMAb8TauhbqHEB",
         "name": "mcp__store__lookup_order",
         "input": {
           "orderId": "ORD-20774"
@@ -35,48 +35,7 @@
         "isError": false
       },
       {
-        "id": "toolu_016nZ5oU3MXFaSzBNEH8WWnz",
-        "name": "mcp__store__find_orders",
-        "input": {
-          "customerName": "Henrik Dahl"
-        },
-        "output": {
-          "customers": [
-            {
-              "id": "C-1035",
-              "name": "Henrik Dahl",
-              "tier": "guest",
-              "memberSince": null
-            }
-          ],
-          "orders": [
-            {
-              "orderId": "ORD-20774",
-              "item": "Camp cookset",
-              "status": "delivered",
-              "deliveredOn": "2026-09-29",
-              "price": 65
-            },
-            {
-              "orderId": "ORD-30078",
-              "item": "Camp slippers",
-              "status": "delivered",
-              "deliveredOn": "2026-09-29",
-              "price": 49
-            },
-            {
-              "orderId": "ORD-30077",
-              "item": "Softshell jacket",
-              "status": "delivered",
-              "deliveredOn": "2026-07-22",
-              "price": 119
-            }
-          ]
-        },
-        "isError": false
-      },
-      {
-        "id": "toolu_01WoTDZ7JkYsvrwHyWfh9nKo",
+        "id": "toolu_0159gARzGMxAffHPbGXaCF6r",
         "name": "mcp__store__create_return",
         "input": {
           "orderId": "ORD-20774",
@@ -94,12 +53,12 @@
     ],
     "usage": {
       "inputTokens": 6,
-      "outputTokens": 573,
-      "cacheReadTokens": 7570,
-      "cacheWriteTokens": 1380
+      "outputTokens": 600,
+      "cacheReadTokens": 7293,
+      "cacheWriteTokens": 1140
     },
-    "costUsd": 0.0008604000000000001,
-    "durationMs": 5311,
+    "costUsd": 0.00073413,
+    "durationMs": 5112,
     "model": "claude-haiku-5-5"
   }
 }

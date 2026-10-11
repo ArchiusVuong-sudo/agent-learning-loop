@@ -4,12 +4,12 @@
   "role": "support",
   "anchor": "v1::Once you receive my returned boots, how long until the refund shows up?",
   "model": "claude-haiku-5-5",
-  "recordedAt": "2026-10-11T03:34:11.959Z",
+  "recordedAt": "2026-10-11T07:19:37.733Z",
   "result": {
-    "text": "Once the boots arrive at our warehouse, your refund should go back to your original payment method within 5–7 business days. Any restocking fee that applies would be deducted from that amount. Your bank may take a few extra days to post it after we send it.",
+    "text": "Once the warehouse receives your returned boots, the refund goes back to your original payment method within 5–7 business days. Restocking fees, if any apply, are deducted from the refund. If you send me your order number, I can start the return for you now so the process is ready when the boots arrive.",
     "toolCalls": [
       {
-        "id": "toolu_01X3vhmH6KbkbzqcNhKufVdv",
+        "id": "toolu_01HvqVmim6H6THhBE1VMTQiS",
         "name": "mcp__store__search_policy",
         "input": {
           "query": "refund processing time after return received"
@@ -38,12 +38,12 @@
     ],
     "usage": {
       "inputTokens": 4,
-      "outputTokens": 260,
-      "cacheReadTokens": 4389,
-      "cacheWriteTokens": 872
+      "outputTokens": 258,
+      "cacheReadTokens": 4385,
+      "cacheWriteTokens": 858
     },
-    "costUsd": 0.00047569,
-    "durationMs": 3362,
+    "costUsd": 0.00047185,
+    "durationMs": 3441,
     "model": "claude-haiku-5-5"
   }
 }

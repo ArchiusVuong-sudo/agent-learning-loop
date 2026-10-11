@@ -1,0 +1,38 @@
+{
+  "key": "fa173589b1a2301a",
+  "anchorKey": "1c48c2e92b2685f4",
+  "role": "support",
+  "anchor": "v1::Hi, this is Ana Kovac. My headlamp on order ORD-20694 showed up with the lens cracked right out of the box. Am I able to get my money back?",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:17:07.212Z",
+  "result": {
+    "text": "Hi Ana, I'm sorry your headlamp arrived with a cracked lens. I've started a return for order ORD-20694 (return ID RMA-20694) as damaged in transit. Your full refund of $59.00 will go back to you 5–7 business days after the warehouse receives the item.",
+    "toolCalls": [
+      {
+        "id": "toolu_01BRjXdFKxEQ7qMeqCNzh8oV",
+        "name": "mcp__store__create_return",
+        "input": {
+          "orderId": "ORD-20694",
+          "reason": "damaged_in_transit"
+        },
+        "output": {
+          "returnId": "RMA-20694",
+          "orderId": "ORD-20694",
+          "refund": 59,
+          "restockingFeePct": 0,
+          "refundTiming": "5-7 business days after the item reaches the warehouse"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 349,
+      "cacheReadTokens": 4151,
+      "cacheWriteTokens": 1016
+    },
+    "costUsd": 0.00055141,
+    "durationMs": 3858,
+    "model": "claude-haiku-5-5"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "key": "ec3781472574e304",
+  "anchorKey": "440c2cc027c5c4eb",
+  "role": "analyst",
+  "anchor": "Customer message:\nHi, Nadia Rahman. What have I ordered recently? I can't find the confirmation email.\n\nTool calls:\n1. mcp__store__find_orders({\"customerName\":\"Nadia Rahman\"}) -> {\"customers\":[{\"id\":\"C-1016\",\"name\":\"Nadia Rahman\",\"tier\":\"guest\",\"memberSince\":null}],\"orders\":[{\"orderId\":\"ORD-20639\",\"",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T07:15:47.263Z",
+  "result": {
+    "text": "{\"goal\":\"Look up recent orders\",\"outcome\":\"resolved\",\"behaviors\":[\"answered_from_policy\"],\"summary\":\"Agent looked up the customer's orders by name and reported the one order found (ORD-20639, camp chair, $69, delivered 2026-09-10), accurately and without extra promises.\"}",
+    "structured": {
+      "goal": "Look up recent orders",
+      "outcome": "resolved",
+      "behaviors": [
+        "answered_from_policy"
+      ],
+      "summary": "Agent looked up the customer's orders by name and reported the one order found (ORD-20639, camp chair, $69, delivered 2026-09-10), accurately and without extra promises."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_013jXy8FW49nnjqqCvcyjFpp",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Look up recent orders",
+          "outcome": "resolved",
+          "behaviors": [
+            "answered_from_policy"
+          ],
+          "summary": "Agent looked up the customer's orders by name and reported the one order found (ORD-20639, camp chair, $69, delivered 2026-09-10), accurately and without extra promises."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 195,
+      "cacheReadTokens": 861,
+      "cacheWriteTokens": 1186
+    },
+    "costUsd": 0.007075,
+    "durationMs": 3028,
+    "model": "claude-sonnet-5-5"
+  }
+}

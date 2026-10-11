@@ -1,0 +1,46 @@
+{
+  "key": "bd6bd41a9ac8f616",
+  "anchorKey": "c370c768471a7c48",
+  "role": "analyst",
+  "anchor": "Customer message:\nI opened my trail headphones 20 days ago, can I still return them?\n\nTool calls:\n(no tool calls)\n\nAgent reply:\nBased on our 30-day return window, 20 days after delivery is within it. To start the return, I need your order number, which looks like ORD-12345. If you don't have it, you",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T07:15:35.194Z",
+  "result": {
+    "text": "{\"goal\":\"Return opened headphones after 20 days\",\"outcome\":\"unresolved\",\"behaviors\":[\"skipped_policy_check\",\"omitted_fee_or_condition\"],\"summary\":\"The agent made no tool calls yet told the customer 20 days is within a 30-day return window, without verifying policy or whether opened items have conditions or fees, then asked for an order number.\"}",
+    "structured": {
+      "goal": "Return opened headphones after 20 days",
+      "outcome": "unresolved",
+      "behaviors": [
+        "skipped_policy_check",
+        "omitted_fee_or_condition"
+      ],
+      "summary": "The agent made no tool calls yet told the customer 20 days is within a 30-day return window, without verifying policy or whether opened items have conditions or fees, then asked for an order number."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_01AJxy7cMja8TFTWL8uFhcUK",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Return opened headphones after 20 days",
+          "outcome": "unresolved",
+          "behaviors": [
+            "skipped_policy_check",
+            "omitted_fee_or_condition"
+          ],
+          "summary": "The agent made no tool calls yet told the customer 20 days is within a 30-day return window, without verifying policy or whether opened items have conditions or fees, then asked for an order number."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 213,
+      "cacheReadTokens": 861,
+      "cacheWriteTokens": 1085
+    },
+    "costUsd": 0.0068073000000000005,
+    "durationMs": 3061,
+    "model": "claude-sonnet-5-5"
+  }
+}

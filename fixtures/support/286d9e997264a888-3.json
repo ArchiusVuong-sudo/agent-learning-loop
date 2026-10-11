@@ -4,12 +4,12 @@
   "role": "support",
   "anchor": "v1::Hi, Lena Fischer here. Has my order ORD-20755 shipped yet?",
   "model": "claude-haiku-5-5",
-  "recordedAt": "2026-10-11T03:34:04.950Z",
+  "recordedAt": "2026-10-11T07:19:24.280Z",
   "result": {
-    "text": "Hi Lena, yes, your order ORD-20755 (Merino base layer) has shipped. It's currently in transit and hasn't been marked as delivered yet. I don't have a carrier tracking number or an estimated delivery date to share, so check back once the tracking updates.",
+    "text": "Hi Lena, yes, your order ORD-20755 (Merino base layer) has shipped and is currently in transit. It hasn't been delivered yet, so there's no delivery date on record. Once it arrives, you'll have 30 days to return it for a full refund if needed.",
     "toolCalls": [
       {
-        "id": "toolu_011GTS3XKfp8efXAEfVEswLX",
+        "id": "toolu_015YBpKsZLq9CHSQUq4pcXbG",
         "name": "mcp__store__lookup_order",
         "input": {
           "orderId": "ORD-20755"
@@ -37,12 +37,12 @@
     ],
     "usage": {
       "inputTokens": 4,
-      "outputTokens": 263,
-      "cacheReadTokens": 4407,
-      "cacheWriteTokens": 638
+      "outputTokens": 222,
+      "cacheReadTokens": 4403,
+      "cacheWriteTokens": 599
     },
-    "costUsd": 0.00048297,
-    "durationMs": 3793,
+    "costUsd": 0.00040563000000000003,
+    "durationMs": 3302,
     "model": "claude-haiku-5-5"
   }
 }

@@ -1,0 +1,36 @@
+{
+  "key": "1b3618f1da225b8a",
+  "anchorKey": "6ac0c3d490229c95",
+  "role": "support",
+  "anchor": "v4::Dmitri Volkov. Please stop charging me for Trail Club, I want out.",
+  "model": "claude-haiku-5-5",
+  "recordedAt": "2026-10-11T07:20:07.869Z",
+  "result": {
+    "text": "Hi Dmitri, I've passed your Trail Club cancellation request to our membership team under ticket ESC-4108. They typically respond within 2 business days, and they'll handle the cancellation and any charges. If you have your account or order number handy, it may help them find your membership faster.",
+    "toolCalls": [
+      {
+        "id": "toolu_01HU6UGDLRxYghNK4px7KbHT",
+        "name": "mcp__store__escalate_to_human",
+        "input": {
+          "category": "membership",
+          "summary": "Dmitri Volkov wants to cancel his Trail Club membership and stop recurring charges. He has not provided an order number or customer ID."
+        },
+        "output": {
+          "ticketId": "ESC-4108",
+          "category": "membership",
+          "responseTime": "2 business days"
+        },
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 4,
+      "outputTokens": 382,
+      "cacheReadTokens": 4806,
+      "cacheWriteTokens": 994
+    },
+    "costUsd": 0.00056646,
+    "durationMs": 4045,
+    "model": "claude-haiku-5-5"
+  }
+}

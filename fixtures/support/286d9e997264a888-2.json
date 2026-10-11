@@ -4,12 +4,12 @@
   "role": "support",
   "anchor": "v1::Hi, Lena Fischer here. Has my order ORD-20755 shipped yet?",
   "model": "claude-haiku-5-5",
-  "recordedAt": "2026-10-11T03:33:11.371Z",
+  "recordedAt": "2026-10-11T07:18:22.808Z",
   "result": {
-    "text": "Hi Lena, yes, your order ORD-20755 (Merino base layer) has shipped and is currently in transit. It hasn't been marked as delivered yet, so it should arrive soon. Let me know if you need anything else with it.",
+    "text": "Hi Lena, yes, your order ORD-20755 has shipped. The Merino base layer is currently in transit and doesn't have a delivery date yet. I can't see a more specific arrival estimate in our system, so check back later for the delivery date.",
     "toolCalls": [
       {
-        "id": "toolu_01EvwrSSjJpEs6CuQK2X3FHg",
+        "id": "toolu_01XMj4k9EHumTyUunjqKB37y",
         "name": "mcp__store__lookup_order",
         "input": {
           "orderId": "ORD-20755"
@@ -37,12 +37,12 @@
     ],
     "usage": {
       "inputTokens": 4,
-      "outputTokens": 218,
-      "cacheReadTokens": 4407,
-      "cacheWriteTokens": 599
+      "outputTokens": 207,
+      "cacheReadTokens": 4402,
+      "cacheWriteTokens": 598
     },
-    "costUsd": 0.00040366999999999996,
-    "durationMs": 3811,
+    "costUsd": 0.00039792,
+    "durationMs": 3299,
     "model": "claude-haiku-5-5"
   }
 }

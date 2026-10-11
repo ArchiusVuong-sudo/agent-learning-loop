@@ -61,7 +61,7 @@ async function main() {
     await waitForJob(page);
 
     // The three suggested messages, in order, the same way the recorded walkthrough sends them.
-    for (const start of [/^I opened my trail headphones/, /^Bram Visser here/, /^Can you cancel/]) {
+    for (const start of [/^I opened my trail headphones/, /^Pia Strand here/, /^Can you cancel/]) {
       const rows = page.locator('[id^=trace-]');
       const before = await rows.count();
       await page.getByRole('button', { name: start }).click();

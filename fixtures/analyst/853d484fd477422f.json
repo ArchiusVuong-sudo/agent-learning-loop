@@ -1,0 +1,44 @@
+{
+  "key": "853d484fd477422f",
+  "anchorKey": "787b36c17ed131d5",
+  "role": "analyst",
+  "anchor": "Customer message:\nHi, this is Imani Okafor. Where is my order ORD-20431? I need the boots for a trip next weekend.\n\nTool calls:\n1. mcp__store__lookup_order({\"orderId\":\"ORD-20431\"}) -> {\"orderId\":\"ORD-20431\",\"customer\":{\"id\":\"C-1001\",\"name\":\"Imani Okafor\",\"tier\":\"guest\"},\"item\":\"Ridgeline hiking boot",
+  "model": "claude-sonnet-5-5",
+  "recordedAt": "2026-10-11T07:16:09.769Z",
+  "result": {
+    "text": "{\"goal\":\"Find order status for ORD-20431\",\"outcome\":\"resolved\",\"behaviors\":[\"skipped_policy_check\"],\"summary\":\"The agent looked up the order and accurately reported it as in transit with no delivery date, then offered return help without checking any return policy or eligibility.\"}",
+    "structured": {
+      "goal": "Find order status for ORD-20431",
+      "outcome": "resolved",
+      "behaviors": [
+        "skipped_policy_check"
+      ],
+      "summary": "The agent looked up the order and accurately reported it as in transit with no delivery date, then offered return help without checking any return policy or eligibility."
+    },
+    "toolCalls": [
+      {
+        "id": "toolu_01DLxkiuxqGg8kiK7wrGRZxA",
+        "name": "StructuredOutput",
+        "input": {
+          "goal": "Find order status for ORD-20431",
+          "outcome": "resolved",
+          "behaviors": [
+            "skipped_policy_check"
+          ],
+          "summary": "The agent looked up the order and accurately reported it as in transit with no delivery date, then offered return help without checking any return policy or eligibility."
+        },
+        "output": "Structured output provided successfully",
+        "isError": false
+      }
+    ],
+    "usage": {
+      "inputTokens": 2,
+      "outputTokens": 186,
+      "cacheReadTokens": 861,
+      "cacheWriteTokens": 1261
+    },
+    "costUsd": 0.007269599999999999,
+    "durationMs": 4763,
+    "model": "claude-sonnet-5-5"
+  }
+}
